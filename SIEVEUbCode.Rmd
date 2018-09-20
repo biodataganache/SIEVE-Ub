@@ -1,0 +1,97 @@
+---
+title: "SIEVEUb"
+author: "Jason McDermott"
+date: "9/18/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+source("SIEVEUb.R")
+```
+
+```{r data-ingest}
+
+  # To generate features from a fasta file use the following command
+  #    from the SIEVEServer code
+  # KmerFeatures.py -f [input.faa] -o [outputbase] -m simple -k 15 -M reduced_alphabet_0
+  
+  
+  # read in data file about examples (class and sequence family)
+  ubex_classes = read.table("data/FamiliesConservative.txt", sep="\t", header=1, row.names=1)
+  ubex_fact = factor(x=ubex_classes[,3], labels=c("positive", "negative"))
+  names(ubex_fact) = rownames(ubex_classes)
+  ubex_families = ubex_classes[,1]
+  names(ubex_families) = rownames(ubex_classes)
+  
+    # this is a matrix of features from examples
+  ubex_k14red0 = read.table("data/red0/ubligase_k14.red0.train", sep="\t", row.names=1, header=1, stringsAsFactors=F)
+
+```
+
+  
+``` {r analysis}
+  # writing a function to move through the sweep
+  kmer_sweep = function(prefix, suffix, start=3, end=15, this_factor, this_families, niter=100) {
+    results = c()
+    for (i in start:end) {
+      fname = sprintf("%s%d%s", prefix, i, suffix)
+      data = read.table(fname, sep="\t", row.names=1, header=1, stringsAsFactors = F)
+      
+      svm_cv = family_bootstrap_svm(t(as.matrix(data[names(this_factor),])), this_factor, this_families, niter=niter)
+      print(svm_cv$auc)
+      results = c(results, svm_cv$auc)
+    }
+    return(results)
+  }
+  
+  # this just performs the same analysis a bunch of times to see what the
+  #   variability from train/test divisions is
+  kmer_run = function(fname, this_factor, this_families, ntimes=10, niter=100) {
+    data = read.table(fname, sep="\t", row.names=1, header=1, stringsAsFactors = F)
+    results = c()
+    for (i in 1:ntimes) {
+      svm_cv = family_bootstrap_svm(t(as.matrix(data[names(this_factor),])), this_factor, this_families, niter=niter)
+      print(svm_cv$auc)
+      results = c(results, svm_cv$auc)
+    }
+    return(results)
+  }
+  
+  # this shows the cross-validation process on a series of kmer lengths using the simple hydrophobic/hydrophilic
+  #      encoding. The feature vectors were pre-generated using the KmerFeatures.py code (see above)
+  
+  ubex_red0_sweep = kmer_sweep("data/red0/ubligase_k", ".red0.train", 3, 20, ubex_fact, ubex_families, 100)
+  #ubex_red1_sweep = kmer_sweep("red1/ubligase_k", ".red1.train", 3, 20, ubex_fact, ubex_families, 100)
+  #ubex_red2_sweep = kmer_sweep("red2/ubligase_k", ".red2.train", 3, 20, ubex_fact, ubex_families, 100)
+  #ubex_red3_sweep = kmer_sweep("red3/ubligase_k", ".red3.train", 3, 20, ubex_fact, ubex_families, 100)
+  #ubex_red4_sweep = kmer_sweep("red4/ubligase_k", ".red4.train", 3, 20, ubex_fact, ubex_families, 100)
+  
+  plot(y=ubex_red0_sweep, x=3:(length(ubex_red0_sweep)+2), ylab="AUC", xlab="kmer length", type="l", ylim=c(0.5,1))
+  
+  #ubex_nat_ksweep = kmer_sweep("nat/ubligase_k", ".train", 3, 20, ubex_fact, ubex_families, 100)
+  
+  load("data/SIEVEUbModel.Rdata")
+  
+  # to be clear about how this model was generated here is the code
+  # For the final model we train on all the examples we have
+  # Note that this is not the case for all the analysis we do of the model
+  #    where we need to use cross-validation to determined performance in a
+  #    robust manner
+  sieveub_model = svm(x=ubex_k14red0[names(ubex_fact),], ubex_fact, probability=T)
+  
+  
+```
+
+``` {r model-application}
+
+# Here's how to apply the model to an example genome, Campylobacter ureolyticus, from PATRIC
+# First make a features file from the fasta file using this command:
+# python3 KmerFeatures.py -f data/1032069.3.PATRIC.faa -o data/1032069.3.PATRIC -m simple -k 14 -M reduced_alphabet_0 -R 9 -F data/ModelFeatureIndex.txt
+# Then you're ready to run this code:
+
+campy_features = read.table("data/1032069.3.PATRIC.txt", sep="\t", row.names=1, header=1, stringsAsFactors=F)
+campy_predictions = validate_svm(train_model=sieveub_model, test_data=t(campy_features))
+
+```
