@@ -1,0 +1,408 @@
+ID	Group	description	Class
+P31492	1	YOPE_YEREN Outer membrane virulence protein yopE OS=Yersinia enterocolitica GN=yopE PE=2 SV=1	1
+P08008	1	YOPE_YERPS Outer membrane virulence protein yopE OS=Yersinia pseudotuberculosis GN=yopE PE=1 SV=2	1
+P13835	2	AVRB_PSESG Avirulence protein B OS=Pseudomonas syringae pv. glycinea GN=avrB PE=1 SV=1	1
+Q5ZV40	3	Q5ZV40_LEGPH Leucine-rich repeat-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legL2 PE=4 SV=1	1
+Q5ZU75	3	Q5ZU75_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1933 PE=4 SV=1	1
+Q5ZU60	3	Q5ZU60_LEGPH Leucine-rich repeat-and coiled coil-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legLC4 PE=4 SV=1	1
+Q5ZSW6	3	Q5ZSW6_LEGPH Leucine-rich repeat-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legL7 PE=1 SV=1	1
+Q5ZU50	3	Q5ZU50_LEGPH Leucine-rich repeat-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legL5 PE=4 SV=1	1
+B5C6I0	4	B5C6I0_SALET Leucine-rich repeat protein OS=Salmonella enterica subsp. enterica serovar Saintpaul str. SARA23 GN=SeSPA_A2856 PE=4 SV=1	1
+A1JU68	4	A1JU68_YERE8 Yop type III secretion system effector protein OS=Yersinia enterocolitica serotype O:8 / biotype 1B (strain 8081) GN=yopM PE=4 SV=1	1
+P17778	4	YOPM_YERPE Outer membrane protein yopM OS=Yersinia pestis GN=yopM PE=1 SV=2	1
+Q663L9	4	Q663L9_YERPS YopM; putative targeted effector protein OS=Yersinia pseudotuberculosis GN=pYV0047 PE=4 SV=1	1
+Q887D0	5	HOPM1_PSESM Effector protein hopM1 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopM1 PE=1 SV=1	1
+Q5ZST3	6	Q5ZST3_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2433 PE=4 SV=1	1
+Q5ZZ85	6	Q5ZZ85_LEGPH Ninein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0126 PE=4 SV=1	1
+Q5ZWG5	6	Q5ZWG5_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1120 PE=4 SV=1	1
+Q888Y1	7	Q888Y1_PSESM Type III effector HopR1 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopR1 PE=4 SV=1	1
+Q5ZSJ0	8	Q5ZSJ0_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2527 PE=4 SV=1	1
+Q5ZYD5	8	Q5ZYD5_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0437 PE=4 SV=1	1
+Q5ZU42	9	Q5ZU42_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1966 PE=4 SV=1	1
+Q5ZU43	9	Q5ZU43_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1965 PE=4 SV=1	1
+Q5ZU39	10	Q5ZU39_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1969 PE=4 SV=1	1
+Q5ZUU0	10	Q5ZUU0_LEGPH Tpr OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1702 PE=4 SV=1	1
+Q5ZUU1	10	Q5ZUU1_LEGPH Kinectin 1 (Kinesin receptor) OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legC3 PE=4 SV=1	1
+Q5ZYT5	11	Q5ZYT5_LEGPH Ras GEF OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legG2 PE=4 SV=1	1
+Q5ZT43	12	Q5ZT43_LEGPH Cardiac ankyrin repeat protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legA5 PE=4 SV=1	1
+Q5ZT65	13	Q5ZT65_LEGPH Ankyrin repeat domain protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legA3 PE=4 SV=1	1
+Q5ZV52	14	Q5ZV52_LEGPH Coiled-coil-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legC6 PE=4 SV=1	1
+Q5ZU32	15	Q5ZU32_LEGPH UVB-resistance protein UVR8 OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legG1 PE=4 SV=1	1
+Q5ZU45	16	Q5ZU45_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1963 PE=4 SV=1	1
+Q5ZRL9	17	Q5ZRL9_LEGPH Coiled-coil containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legC8 PE=4 SV=1	1
+Q87W07	18	Q87W07_PSESM Type III effector HopI1 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopI1 PE=4 SV=1	1
+Q5ZSB6	19	Q5ZSB6_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2603 PE=4 SV=1	1
+Q5ZWI4	19	Q5ZWI4_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1101 PE=4 SV=1	1
+Q5ZSQ3	19	Q5ZSQ3_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2464 PE=1 SV=1	1
+Q5ZYH0	20	Q5ZYH0_LEGPH Putative ankyrin-repeat containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legA9 PE=4 SV=1	1
+Q5ZTE7	21	Q5ZTE7_LEGPH Ankyrin repeat-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legA2 PE=4 SV=1	1
+Q5ZUG2	22	Q5ZUG2_LEGPH Coiled coil domain protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1836 PE=4 SV=1	1
+Q5ZWH5	23	Q5ZWH5_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1110 PE=4 SV=1	1
+Q5ZV42	24	Q5ZV42_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1598 PE=4 SV=1	1
+Q5ZVZ8	25	Q5ZVZ8_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1290 PE=4 SV=1	1
+Q5ZSR1	26	Q5ZSR1_LEGPH Ankyrin repeat-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legA15 PE=4 SV=1	1
+Q5ZWE0	26	Q5ZWE0_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1145 PE=4 SV=1	1
+Q5ZUE7	27	Q5ZUE7_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1851 PE=4 SV=1	1
+Q5ZZC1	29	Q5ZZC1_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0090 PE=4 SV=1	1
+Q5ZYK7	29	Q5ZYK7_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0365 PE=4 SV=1	1
+Q5ZT37	30	Q5ZT37_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2328 PE=4 SV=1	1
+P0C2N1	31	YOPT1_YEREN Cysteine protease yopT1 OS=Yersinia enterocolitica GN=yopT1 PE=3 SV=1	1
+P27475	31	YOPT_YEREN Cysteine protease yopT OS=Yersinia enterocolitica GN=yopT PE=3 SV=2	1
+O68703	31	YOPT_YERPE Cysteine protease yopT OS=Yersinia pestis GN=yopT PE=1 SV=1	1
+Q93RN4	31	YOPT_YERPS Cysteine protease yopT OS=Yersinia pseudotuberculosis GN=yopT PE=1 SV=2	1
+Q08370	32	HRMA_PSESY Protein hrmA OS=Pseudomonas syringae pv. syringae GN=hrmA PE=4 SV=1	1
+Q5ZYT6	33	Q5ZYT6_LEGPH SdbA OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0275 PE=4 SV=1	1
+Q5ZTB4	34	Q5ZTB4_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2248 PE=4 SV=1	1
+Q5ZYY4	34	Q5ZYY4_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0227 PE=4 SV=1	1
+Q5ZY53	35	Q5ZY53_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0519 PE=4 SV=1	1
+Q5ZT38	36	Q5ZT38_LEGPH CG18304 gene product OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2327 PE=4 SV=1	1
+Q5ZVF2	36	Q5ZVF2_LEGPH Coiled-coil-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legC5 PE=4 SV=1	1
+Q5ZVE9	36	Q5ZVE9_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1491 PE=4 SV=1	1
+Q5ZSU4	37	Q5ZSU4_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2422 PE=4 SV=1	1
+Q5ZZ20	38	Q5ZZ20_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0191 PE=4 SV=1	1
+Q5ZSV5	39	Q5ZSV5_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2411 PE=4 SV=1	1
+Q87WF7	40	Q87WF7_PSESM Type III effector HopT1-2 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopT1-2 PE=4 SV=1	1
+Q5ZSN5	41	Q5ZSN5_LEGPH SdbC OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2482 PE=4 SV=1	1
+Q5ZV00	41	Q5ZV00_LEGPH SidB OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=sidB PE=4 SV=1	1
+Q5ZSX5	41	Q5ZSX5_LEGPH SdbC OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=sdbC PE=4 SV=1	1
+Q5ZU59	42	Q5ZU59_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1949 PE=4 SV=1	1
+Q5ZRK7	43	Q5ZRK7_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2874 PE=4 SV=1	1
+Q5ZYS7	44	Q5ZYS7_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0284 PE=4 SV=1	1
+Q5ZYS6	44	Q5ZYS6_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0285 PE=4 SV=1	1
+Q5ZXN5	45	Q5ZXN5_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0696 PE=4 SV=1	1
+Q87X57	46	Q87X57_PSESM Type III effector HopE1 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopE1 PE=4 SV=1	1
+Q87W42	47	Q87W42_PSESM Type III effector HopG1 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopG1 PE=4 SV=1	1
+Q5ZSK9	48	Q5ZSK9_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2508 PE=4 SV=1	1
+B8F8V9	48	B8F8V9_DESAA Putative uncharacterized protein OS=Desulfatibacillum alkenivorans (strain AK-01) GN=Dalk_0282 PE=4 SV=1	1
+Q5ZTK6	48	Q5ZTK6_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2155 PE=4 SV=1	1
+Q56921	49	Q56921_YEREN Protein kinase A OS=Yersinia enterocolitica GN=ypkA PE=4 SV=1	1
+O85239	49	O85239_YEREN Protein kinase YopO OS=Yersinia enterocolitica GN=yopO PE=4 SV=1	1
+Q05608	49	YPKA_YERPS Protein kinase ypkA OS=Yersinia pseudotuberculosis GN=ypkA PE=1 SV=2	1
+Q9RI12	49	YPKA_YERPE Protein kinase ypkA OS=Yersinia pestis GN=ypkA PE=3 SV=1	1
+Q88A09	50	Q88A09_PSESM Type III effector HopH1 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopH1 PE=4 SV=1	1
+Q881L7	51	Q881L7_PSESM HopL1 protein OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=PSPTO_2872 PE=4 SV=1	1
+Q5ZYJ6	52	"Q5ZYJ6_LEGPH SdhA, GRIP coiled-coil protein GCC185 OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=sdhA PE=4 SV=1"	1
+Q5ZZ76	52	Q5ZZ76_LEGPH SdhB OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=sdhB PE=4 SV=1	1
+Q5ZRQ1	52	Q5ZRQ1_LEGPH SidH OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=sidH PE=4 SV=1	1
+Q9RBW3	53	HPAB1_PSESH Effector protein hopAB1 OS=Pseudomonas syringae pv. phaseolicola GN=hopAB1 PE=2 SV=1	1
+Q9K2L5	54	Q9K2L5_PSESH ORF2 OS=Pseudomonas syringae pv. phaseolicola PE=1 SV=1	1
+B5MXT4	55	"B5MXT4_SALET Secreted effector protein OS=Salmonella enterica subsp. enterica serovar 4,[5],12:i:- str. CVM23701 GN=SeI_A2719 PE=4 SV=1"	1
+Q5ZRQ0	56	LUBX_LEGPH E3 ubiquitin-protein ligase LubX OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lubX PE=1 SV=1	1
+Q87W46	57	Q87W46_PSESM Type III effector HopV1 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopV1 PE=4 SV=1	1
+Q5ZZH2	58	Q5ZZH2_LEGPH Ankyrin repeat-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legA10 PE=4 SV=1	1
+P15273	59	YOPH_YEREN Tyrosine-protein phosphatase yopH OS=Yersinia enterocolitica GN=yopH PE=1 SV=1	1
+P08538	59	YOPH_YERPS Tyrosine-protein phosphatase yopH OS=Yersinia pseudotuberculosis GN=yopH PE=1 SV=3	1
+P74873	59	SPTP_SALTY Secreted effector protein sptP OS=Salmonella typhimurium GN=sptP PE=1 SV=1	1
+Q888Y7	60	Q888Y7_PSESM Type III effector HopQ1-1 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopQ1-1 PE=4 SV=1	1
+Q5ZTE6	61	"Q5ZTE6_LEGPH Purine NTPase, putative OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2216 PE=4 SV=1"	1
+Q01249	62	YSCH_YEREN Yop proteins translocation protein H OS=Yersinia enterocolitica GN=yscH PE=2 SV=1	1
+Q663I2	62	YSCH_YERPS Yop proteins translocation protein H OS=Yersinia pseudotuberculosis GN=yscH PE=2 SV=1	1
+P68590	62	YSCH_YERPE Yop proteins translocation protein H OS=Yersinia pestis GN=yscH PE=1 SV=1	1
+Q88AB8	63	Q88AB8_PSESM Type III effector HopAS1 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopAS1 PE=4 SV=1	1
+Q5ZUC3	64	"Q5ZUC3_LEGPH Microtubule binding protein, putative OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legC2 PE=4 SV=1"	1
+Q5ZT67	64	Q5ZT67_LEGPH Inclusion membrane protein A OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legC7 PE=4 SV=1	1
+Q7PC62	69	HOAE1_PSEU2 Effector protein hopAE1 OS=Pseudomonas syringae pv. syringae (strain B728a) GN=hopAE1 PE=3 SV=1	1
+Q5ZSC8	70	Q5ZSC8_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2591 PE=4 SV=1	1
+Q7PC42	71	Q7PC42_PSEU2 Putative type III effector HolPtoACPsy OS=Pseudomonas syringae pv. syringae (strain B728a) GN=Psyr_0527 PE=4 SV=1	1
+Q9L6W4	71	Q9L6W4_PSEUB Putative uncharacterized protein OS=Pseudomonas syringae pv. tomato PE=4 SV=1	1
+Q5ZWZ3	72	Q5ZWZ3_LEGPH LidA OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0940 PE=1 SV=1	1
+O34020	73	O34020_CHLCV CopN protein OS=Chlamydophila caviae GN=copN PE=4 SV=1	1
+Q9Z8L4	73	Q9Z8L4_CHLPN CopN OS=Chlamydia pneumoniae GN=lcrE PE=4 SV=1	1
+Q52530	74	Q52530_PSESH Avirulence gene D (Fragment) OS=Pseudomonas syringae pv. phaseolicola GN=avrD PE=4 SV=1	1
+Q5ZUY2	75	Q5ZUY2_LEGPH Leucine-rich repeat-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legL3 PE=4 SV=1	1
+Q824H6	79	Q824H6_CHLCV Putative uncharacterized protein OS=Chlamydophila caviae GN=CCA_00170 PE=4 SV=1	1
+Q9Z7Y1	79	Y572_CHLPN Uncharacterized protein CPn_0572/CP_0177/CPj0572/CpB0594 OS=Chlamydia pneumoniae GN=CPn_0572 PE=3 SV=1	1
+O84462	79	TARP_CHLTR Translocated actin-recruiting phosphoprotein OS=Chlamydia trachomatis GN=tarP PE=3 SV=1	1
+Q9F3T4	80	AVRP2_PSESJ Probable cysteine protease avirulence protein AvrPpiC2 OS=Pseudomonas syringae pv. pisi GN=avrPpiC2 PE=3 SV=1	1
+Q52394	81	Q52394_PSESH AvrPphE OS=Pseudomonas syringae pv. phaseolicola GN=avrPphE PE=4 SV=1	1
+Q5ZRT5	82	Q5ZRT5_LEGPH Interaptin OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lepA PE=4 SV=1	1
+Q5ZU58	83	Q5ZU58_LEGPH Guanine nucleotide exchange protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=sec7 PE=4 SV=1	1
+Q9Z8Z8	84	Q9Z8Z8_CHLPN CPj0186 protein OS=Chlamydia pneumoniae GN=CP_0581 PE=4 SV=1	1
+Q46210	84	Q46210_CHLCV Inclusion membrane localised protein OS=Chlamydophila caviae GN=incA PE=4 SV=1	1
+Q888W0	85	Q888W0_PSESM Type III effector HopAI1 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopAI1 PE=4 SV=1	1
+D6YXE8	86	INCA_CHLT9 Inclusion membrane protein A OS=Chlamydia trachomatis serovar G (strain G/9301) GN=incA PE=3 SV=1	1
+Q7PC45	87	Q7PC45_PSEU2 Putative type III effector HolPsyAG OS=Pseudomonas syringae pv. syringae (strain B728a) GN=Psyr_0778 PE=4 SV=1	1
+Q5ZRP9	88	Q5ZRP9_LEGPH VipD OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=vipD PE=4 SV=1	1
+Q5ZVL4	88	Q5ZVL4_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1426 PE=4 SV=1	1
+Q5ZW60	88	Q5ZW60_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1227 PE=4 SV=1	1
+Q5ZSV6	88	"Q5ZSV6_LEGPH Hypothetical, patatin-like phospholipase OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2410 PE=4 SV=1"	1
+Q52537	89	Q52537_PSESX AvrPmaA1 protein OS=Pseudomonas syringae GN=avrPmaA1 PE=4 SV=1	1
+Q5ZTK4	90	Q5ZTK4_LEGPH Sid related protein-like OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2157 PE=4 SV=1	1
+Q5ZSK8	90	Q5ZSK8_LEGPH SdeD OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2509 PE=4 SV=1	1
+Q5ZTK8	90	Q5ZTK8_LEGPH Sid related protein-like OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2153 PE=4 SV=1	1
+Q5ZVE4	90	Q5ZVE4_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1496 PE=4 SV=1	1
+Q5ZTK5	90	Q5ZTK5_LEGPH Sid related protein-like OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2156 PE=4 SV=1	1
+Q5ZYX7	90	Q5ZYX7_LEGPH SidE OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=sidE PE=4 SV=1	1
+Q5ZSJ4	90	Q5ZSJ4_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2523 PE=4 SV=1	1
+Q5ZTK7	90	Q5ZTK7_LEGPH Sid related protein-like OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2154 PE=4 SV=1	1
+P11437	91	AVRA_PSESG Avirulence protein A OS=Pseudomonas syringae pv. glycinea GN=avrA PE=4 SV=1	1
+Q52432	92	Q52432_PSESX Avirulence protein (Fragment) OS=Pseudomonas syringae GN=avrRps4 PE=4 SV=1	1
+Q9Z8P7	93	Q9Z8P7_CHLPN Inclusion Membrane Protein B OS=Chlamydia pneumoniae GN=incB PE=4 SV=1	1
+O84235	93	O84235_CHLTR Inclusion Membrane Protein B OS=Chlamydia trachomatis GN=incB PE=4 SV=1	1
+Q9F3T6	94	AVRD1_PSESH Effector protein AvrPphD OS=Pseudomonas syringae pv. phaseolicola GN=avrPphD PE=3 SV=1	1
+Q5ZYD6	95	Q5ZYD6_LEGPH Ankyrin repeat-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legA11 PE=4 SV=1	1
+Q52389	96	Q52389_PSESX Putative uncharacterized protein OS=Pseudomonas syringae PE=4 SV=1	1
+Q9Z8P6	97	Q9Z8P6_CHLPN Inclusion Membrane Protein C OS=Chlamydia pneumoniae GN=incC PE=4 SV=1	1
+O30783	97	O30783_CHLCV Inclusion membrane protein C OS=Chlamydophila caviae GN=IncC PE=4 SV=1	1
+O84236	97	O84236_CHLTR Inclusion Membrane Protein C OS=Chlamydia trachomatis GN=incC PE=4 SV=1	1
+Q9JP32	98	Q9JP32_PSEUB Putative uncharacterized protein OS=Pseudomonas syringae pv. tomato PE=4 SV=1	1
+Q5ZS02	99	Q5ZS02_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2718 PE=4 SV=1	1
+Q5ZXT9	99	Q5ZXT9_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0642 PE=4 SV=1	1
+Q87W65	100	HOPAD_PSESM Effector protein hopAD1 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopAD1 PE=4 SV=1	1
+Q87XS5	101	Q87XS5_PSESM Type III helper protein HopAK1 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopAK1 PE=4 SV=1	1
+Q5ZSK6	102	"Q5ZSK6_LEGPH SidC, interaptin OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=sidC PE=4 SV=1"	1
+Q5ZSK7	102	Q5ZSK7_LEGPH SdcA OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2510 PE=4 SV=1	1
+Q9RPQ1	103	INCD_CHLTR Inclusion membrane protein D OS=Chlamydia trachomatis GN=incD PE=4 SV=2	1
+Q9L6W3	104	Q9L6W3_PSEUB HrpK OS=Pseudomonas syringae pv. tomato GN=hrpK PE=4 SV=1	1
+Q5ZVT5	105	Q5ZVT5_LEGPH SidG OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=sidG PE=4 SV=1	1
+O84118	106	INCE_CHLTR Inclusion membrane protein E OS=Chlamydia trachomatis GN=incE PE=4 SV=1	1
+O84119	107	INCF_CHLTR Inclusion membrane protein F OS=Chlamydia trachomatis GN=incF PE=4 SV=1	1
+Q5ZSQ2	108	Q5ZSQ2_LEGPH SidD OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=sidD PE=4 SV=1	1
+A6M3V0	109	"A6M3V0_YERPE Secreted targeting protein, possible regulator, Type III system OS=Yersinia pestis CA88-4125 GN=yopK PE=4 SV=1"	1
+P27474	109	YOPQ_YEREN Protein yopQ OS=Yersinia enterocolitica GN=yopQ PE=4 SV=1	1
+Q56935	109	"Q56935_YERPS Yop targeting protein yopK, yopQ OS=Yersinia pseudotuberculosis GN=yopK PE=4 SV=1"	1
+Q886L1	110	Q886L1_PSESM Type III effector HopAF1 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopAF1 PE=4 SV=1	1
+O84120	111	INCG_CHLTR Inclusion membrane protein G OS=Chlamydia trachomatis GN=incG PE=1 SV=1	1
+Q5ZX35	112	Q5ZX35_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0898 PE=4 SV=1	1
+Q9Z9F5	113	Q9Z9F5_CHLPN Putative uncharacterized protein OS=Chlamydia pneumoniae GN=CpB0030 PE=4 SV=1	1
+Q9Z7W9	114	Q9Z7W9_CHLPN CPj0585 protein OS=Chlamydia pneumoniae GN=CP_0163 PE=4 SV=1	1
+P40613	115	SPAN_SALTY Surface presentation of antigens protein spaN OS=Salmonella typhimurium GN=spaN PE=3 SV=1	1
+Q5ZSV7	116	Q5ZSV7_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2409 PE=4 SV=1	1
+P0CL52	117	SIPA_SALTY Cell invasion protein SipA OS=Salmonella typhimurium GN=sipA PE=1 SV=1	1
+Q5ZWE1	118	Q5ZWE1_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1144 PE=4 SV=1	1
+Q5ZSD5	119	"Q5ZSD5_LEGPH SidF, inhibitor of growth family, member 3 OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=sidF PE=4 SV=1"	1
+Q56061	121	SIFA_SALTY Secreted effector protein sifA OS=Salmonella typhimurium GN=sifA PE=1 SV=1	1
+Q5ZZJ8	122	Q5ZZJ8_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0012 PE=4 SV=1	1
+O30916	123	SOPB_SALTY Inositol phosphate phosphatase sopB OS=Salmonella typhimurium GN=sopB PE=1 SV=2	1
+Q88BF6	124	Q88BF6_PSESM Type III effector HopY1 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopY1 PE=4 SV=1	1
+P40722	125	SOPD_SALTY Secreted effector protein sopD OS=Salmonella typhimurium GN=sopD PE=1 SV=2	1
+O52623	126	SOPE_SALTY Guanine nucleotide exchange factor sopE OS=Salmonella typhimurium GN=sopE PE=1 SV=3	1
+Q7CQD4	126	SOPE2_SALTY Guanine nucleotide exchange factor sopE2 OS=Salmonella typhimurium GN=sopE2 PE=1 SV=3	1
+Q5ZXW0	127	Q5ZXW0_LEGPH SidA OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=sidA PE=4 SV=1	1
+Q5ZV21	128	Q5ZV21_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1621 PE=4 SV=1	1
+Q58I88	129	Q58I88_ECOLX Translocated intimin receptor OS=Escherichia coli GN=tir PE=4 SV=1	1
+Q5ZYI2	130	Q5ZYI2_LEGPH VipA OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=vipA PE=4 SV=1	1
+B7UM94	131	B7UM94_ECO27 Translocon EspA OS=Escherichia coli O127:H6 (strain E2348/69 / EPEC) GN=espA PE=4 SV=1	1
+Q5ZU28	132	Q5ZU28_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1980 PE=4 SV=1	1
+B3BD94	133	B3BD94_ECO57 Secreted protein EspB OS=Escherichia coli O157:H7 str. EC869 GN=ECH7EC869_1701 PE=4 SV=1	1
+B3A274	134	B3A274_ECO57 Secreted protein EspD OS=Escherichia coli O157:H7 str. EC4401 GN=ECH7EC4401_1036 PE=4 SV=1	1
+B2PHR1	135	B2PHR1_ECO57 EspF OS=Escherichia coli O157:H7 str. EC4076 GN=ECH7EC4076_5593 PE=4 SV=1	1
+P0DJ89	135	ESFU3_ECO57 Secreted effector protein EspF(U) OS=Escherichia coli O157:H7 GN=espF(U) PE=1 SV=1	1
+A2A0X3	135	A2A0X3_ECOLX Type III secreted effector protein OS=Escherichia coli O157:H- GN=tccP2 PE=4 SV=1	1
+O85646	136	O85646_ECOLX EspG OS=Escherichia coli PE=4 SV=1	1
+Q889A9	137	Q889A9_PSESM Type III helper protein HopAJ1 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopAJ1 PE=4 SV=1	1
+Q5ZYX1	138	Q5ZYX1_LEGPH DNA repair protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=recN PE=4 SV=1	1
+Q5ZTG2	139	Q5ZTG2_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2200 PE=4 SV=1	1
+B3A307	140	B3A307_ECO57 NleB OS=Escherichia coli O157:H7 str. EC4401 GN=ECH7EC4401_2886 PE=4 SV=1	1
+Q5ZZA8	141	"Q5ZZA8_LEGPH N-terminal acetyltransferase, GNAT family OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=vipF PE=4 SV=1"	1
+B3BS59	142	B3BS59_ECO57 NleE OS=Escherichia coli O157:H7 str. EC508 GN=ECH7EC508_2961 PE=4 SV=1	1
+Q5ZWD7	143	Q5ZWD7_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1148 PE=4 SV=1	1
+Q5ZWC7	144	Q5ZWC7_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1158 PE=4 SV=1	1
+Q5ZYR7	145	Q5ZYR7_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0294 PE=4 SV=1	1
+Q5ZXU7	146	Q5ZXU7_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0634 PE=4 SV=1	1
+Q5ZSV9	147	Q5ZSV9_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2407 PE=4 SV=1	1
+Q5ZRX7	148	Q5ZRX7_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2744 PE=4 SV=1	1
+P31498	149	YOPJ_YERPS Effector protein yopJ OS=Yersinia pseudotuberculosis GN=yopJ PE=1 SV=3	1
+Q93KQ5	149	Q93KQ5_YEREN Yop effector YopP OS=Yersinia enterocolitica GN=yopP PE=4 SV=1	1
+Q87V79	150	Q87V79_PSESM HopAN1 protein OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=PSPTO_5061 PE=4 SV=1	1
+Q5ZV17	151	Q5ZV17_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1625 PE=4 SV=1	1
+Q5ZY54	152	Q5ZY54_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0518 PE=4 SV=1	1
+Q5ZUS5	153	Q5ZUS5_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1717 PE=4 SV=1	1
+Q5ZWX1	154	Q5ZWX1_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0963 PE=4 SV=1	1
+Q5ZZG5	155	Q5ZZG5_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0045 PE=4 SV=1	1
+Q5ZZD0	156	Q5ZZD0_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg0081 PE=4 SV=1	1
+P37033	157	Y1689_LEGPH Uncharacterized protein lpg1689 OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1689 PE=4 SV=1	1
+Q882F0	158	Q882F0_PSESM Type III helper protein HopP1 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopP1 PE=4 SV=1	1
+Q5ZRQ4	159	Q5ZRQ4_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2826 PE=4 SV=1	1
+Q5ZW15	160	Q5ZW15_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1273 PE=4 SV=1	1
+Q5ZUP2	161	Q5ZUP2_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1751 PE=4 SV=1	1
+Q5ZTI6	162	SGPL_LEGPH Probable sphingosine-1-phosphate lyase OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2176 PE=3 SV=2	1
+Q5ZTL7	163	Q5ZTL7_LEGPH F-box protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legAU13 PE=4 SV=1	1
+Q5ZTM4	164	Q5ZTM4_LEGPH Calmodulin-dependent protein kinase OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legK2 PE=4 SV=1	1
+Q5ZXN6	165	Q5ZXN6_LEGPH Ankyrin repeat-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legA8 PE=4 SV=1	1
+Q5ZZ40	166	Q5ZZ40_LEGPH FBOX-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legU1 PE=4 SV=1	1
+Q5ZSG1	167	Q5ZSG1_LEGPH Putative uncharacterized protein legK3 OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legK3 PE=4 SV=1	1
+Q5ZWY8	168	"Q5ZWY8_LEGPH Gala protein type 1, 3 or 4 OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legL1 PE=4 SV=1"	1
+Q8RP03	169	Q8RP03_PSEYM Type III effector HopPtoA1Pma OS=Pseudomonas syringae pv. maculicola PE=4 SV=1	1
+Q5ZSL3	170	Q5ZSL3_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2504 PE=4 SV=1	1
+Q5ZU44	171	Q5ZU44_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1964 PE=4 SV=1	1
+Q5ZU48	172	Q5ZU48_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1960 PE=4 SV=1	1
+Q5ZU46	173	Q5ZU46_LEGPH Peptidyl-prolyl cis-trans isomerase OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1962 PE=3 SV=1	1
+Q5ZUS4	174	Q5ZUS4_LEGPH Eukaryotic huntingtin interacting protein B OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legAS4 PE=4 SV=1	1
+Q5ZYG9	175	Q5ZYG9_LEGPH Ankyrin repeat-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legA7 PE=4 SV=1	1
+Q5ZY89	176	Q5ZY89_LEGPH Ankyrin repeat-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legA12 PE=4 SV=1	1
+Q5ZSR5	177	Q5ZSR5_LEGPH Ankyrin repeat-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legA14 PE=4 SV=1	1
+Q5ZR84	178	Q5ZR84_LEGPH Astacin protease OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legP PE=3 SV=1	1
+Q5ZU55	179	Q5ZU55_LEGPH Coiled-coil-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legC4 PE=4 SV=1	1
+Q2TH32	4	Q2TH32_SHIFL Invasion plasmid antigen OS=Shigella flexneri GN=ipaH4.5 PE=4 SV=1	0
+Q1C2J9	4	Q1C2J9_YERPA Putative antigenic leucine-rich repeat protein OS=Yersinia pestis bv. Antiqua (strain Antiqua) GN=YPA_3361 PE=4 SV=1	0
+F5R6W2	4	F5R6W2_SHIFL E3 ubiquitin-ligase ipaH9.8 domain protein OS=Shigella flexneri 2930-71 GN=SF293071_5006 PE=4 SV=1	0
+Q322S7	4	Q322S7_SHIBS Invasion plasmid antigen OS=Shigella boydii serotype 4 (strain Sb227) GN=ipaH_3 PE=4 SV=1	0
+Q3K8R8	4	Q3K8R8_PSEPF Putative leucine rich-repeat protein OS=Pseudomonas fluorescens (strain Pf0-1) GN=Pfl01_4099 PE=4 SV=1	0
+Q32HH8	4	Q32HH8_SHIDS Invasion plasmid antigen OS=Shigella dysenteriae serotype 1 (strain Sd197) GN=ipaH_3 PE=4 SV=1	0
+C0Q0R0	4	C0Q0R0_SALPC Leucine-rich repeat protein OS=Salmonella paratyphi C (strain RKS4594) GN=sspH2 PE=4 SV=1	0
+Q88K97	4	Q88K97_PSEPK Leucine-rich repeat domain protein OS=Pseudomonas putida (strain KT2440) GN=PP2394 PE=4 SV=1	0
+Q89TL5	4	Q89TL5_BRAJA Blr1904 protein OS=Bradyrhizobium japonicum GN=blr1904 PE=4 SV=1	0
+Q88KS7	4	Q88KS7_PSEPK Leucine-rich repeat domain protein OS=Pseudomonas putida (strain KT2440) GN=PP2212 PE=4 SV=1	0
+Q3YTT3	4	Q3YTT3_SHISS Invasion plasmid antigen OS=Shigella sonnei (strain Ss046) GN=ipaH4.5 PE=4 SV=1	0
+F7R9P9	4	F7R9P9_SHIFL E3 ubiquitin-protein ligase ipaH9.8 OS=Shigella flexneri J1713 GN=SFJ1713_2124 PE=4 SV=1	0
+Q31SL9	4	Q31SL9_SHIBS Invasion plasmid antigen OS=Shigella boydii serotype 4 (strain Sb227) GN=ipaH7.8 PE=4 SV=1	0
+Q32I41	4	Q32I41_SHIDS Invasion plasmid antigen OS=Shigella dysenteriae serotype 1 (strain Sd197) GN=ipaH_1 PE=4 SV=1	0
+F5QVG9	4	F5QVG9_SHIFL Putative E3 ubiquitin-protein ligase ipaH4.5 OS=Shigella flexneri 2930-71 GN=ipaH4.5 PE=4 SV=1	0
+Q327F7	4	Q327F7_SHIDS Invasion plasmid antigen OS=Shigella dysenteriae serotype 1 (strain Sd197) GN=ipaH7.8 PE=4 SV=1	0
+A4D0H6	4	A4D0H6_SALTY SspH1 (Fragment) OS=Salmonella typhimurium GN=sspH1 PE=4 SV=1	0
+Q8VSM3	4	"Q8VSM3_SHIFL Invasion plasmid antigen, probably secreted by the Mxi-Spa machinery OS=Shigella flexneri GN=ipaH2.5 PE=4 SV=1"	0
+H0N064	4	H0N064_SALMO E3 ubiquitin-protein ligase SlrP OS=Salmonella enterica subsp. enterica serovar Montevideo str. CT_02035327 GN=SEEM5327_14245 PE=4 SV=1	0
+Q321X4	4	Q321X4_SHIBS Invasion plasmid antigen OS=Shigella boydii serotype 4 (strain Sb227) GN=ipaH_4 PE=4 SV=1	0
+Q326Z6	4	IPA9_SHIDS E3 ubiquitin-protein ligase ipaH9.8 OS=Shigella dysenteriae serotype 1 (strain Sd197) GN=ipaH9.8 PE=3 SV=2	0
+F5R1P5	4	F5R1P5_SHIFL E3 ubiquitin-ligase ipaH9.8 domain protein OS=Shigella flexneri 2930-71 GN=SF293071_3107 PE=4 SV=1	0
+B2TSV2	4	B2TSV2_SHIB3 IpaH7.8 OS=Shigella boydii serotype 18 (strain CDC 3083-94 / BS512) GN=SbBS512_A0130 PE=4 SV=1	0
+F7RC20	4	F7RC20_SHIFL E3 ubiquitin-ligase ipaH9.8 domain protein (Fragment) OS=Shigella flexneri J1713 GN=SFJ1713_2992 PE=4 SV=1	0
+Q32F07	4	Q32F07_SHIDS Invasion plasmid antigen OS=Shigella dysenteriae serotype 1 (strain Sd197) GN=ipaH_5 PE=4 SV=1	0
+Q83RJ4	4	IPA3_SHIFL E3 ubiquitin-protein ligase ipaH3 OS=Shigella flexneri GN=ipaH3 PE=1 SV=1	0
+Q327F0	4	Q327F0_SHIDS Invasion plasmid antigen OS=Shigella dysenteriae serotype 1 (strain Sd197) GN=ipaH1.4 PE=4 SV=1	0
+Q0T6J3	4	Q0T6J3_SHIF8 Invasion plasmid antigen OS=Shigella flexneri serotype 5b (strain 8401) GN=ipaH_1 PE=4 SV=1	0
+H0ND37	4	H0ND37_SALET E3 ubiquitin-protein ligase SlrP OS=Salmonella enterica subsp. enterica serovar Pomona str. ATCC 10729 GN=SEEPO729_18671 PE=4 SV=1	0
+B5BZ46	4	B5BZ46_SALET SspH1 OS=Salmonella enterica subsp. enterica serovar Saintpaul str. SARA23 GN=SeSPA_A1773 PE=4 SV=1	0
+Q83QI8	4	Q83QI8_SHIFL Invasion plasmid antigen OS=Shigella flexneri GN=ipaH_7 PE=4 SV=4	0
+Q324C5	4	Q324C5_SHIBS Invasion plasmid antigen OS=Shigella boydii serotype 4 (strain Sb227) GN=ipaH_1 PE=4 SV=1	0
+E8NV20	4	E8NV20_SALET Leucine-rich repeat-containing protein OS=Salmonella enterica subsp. enterica serovar Choleraesuis str. SCSA50 GN=slrP PE=4 SV=1	0
+Q0T534	4	Q0T534_SHIF8 Invasion plasmid antigen OS=Shigella flexneri serotype 5b (strain 8401) GN=ipaH_2 PE=4 SV=1	0
+F5QVY2	4	F5QVY2_SHIFL E3 ubiquitin-ligase ipaH9.8 domain protein OS=Shigella flexneri 2930-71 GN=SF293071_1053 PE=4 SV=1	0
+Q2TH08	4	Q2TH08_SHIFL Invasion plasmid antigen OS=Shigella flexneri GN=ipaH2.5 PE=4 SV=1	0
+F5R1P7	4	F5R1P7_SHIFL E3 ubiquitin-ligase ipaH9.8 domain protein (Fragment) OS=Shigella flexneri 2930-71 GN=SF293071_3109 PE=4 SV=1	0
+Q3Z082	4	Q3Z082_SHISS Invasion plasmid antigen OS=Shigella sonnei (strain Ss046) GN=ipaH_4 PE=4 SV=1	0
+B5R199	4	B5R199_SALEP Secreted effector protein OS=Salmonella enteritidis PT4 (strain P125109) GN=sspH2 PE=4 SV=1	0
+F5QWI3	4	F5QWI3_SHIFL E3 ubiquitin-ligase ipaH3 domain protein OS=Shigella flexneri 2930-71 GN=SF293071_1256 PE=4 SV=1	0
+F8VEB0	4	F8VEB0_SALBC Leucine-rich repeat protein SlrP OS=Salmonella bongori (strain ATCC 43975 / DSM 13772 / NCTC 12419) GN=slrP PE=4 SV=1	0
+Q327F8	4	Q327F8_SHIDS Invasion plasmid antigen OS=Shigella dysenteriae serotype 1 (strain Sd197) GN=ipaH4.5 PE=4 SV=1	0
+B5MTV2	4	B5MTV2_SALET SspH1 OS=Salmonella enterica subsp. enterica serovar Saintpaul str. SARA29 GN=SeSPB_A1375 PE=4 SV=1	0
+B2TT54	4	IPA9_SHIB3 E3 ubiquitin-protein ligase ipaH9.8 OS=Shigella boydii serotype 18 (strain CDC 3083-94 / BS512) GN=ipaH9.8 PE=3 SV=1	0
+Q7UA96	4	Q7UA96_SHIFL Invasion plasmid antigen OS=Shigella flexneri GN=ipaH_5 PE=4 SV=1	0
+Q6XVT8	4	Q6XVT8_SHIFL IpaH1.4 OS=Shigella flexneri GN=ipaH1.4 PE=4 SV=1	0
+B2TSR7	4	B2TSR7_SHIB3 IpaH1.4 OS=Shigella boydii serotype 18 (strain CDC 3083-94 / BS512) GN=SbBS512_A0087 PE=4 SV=1	0
+B3GSN3	4	B3GSN3_SHIBO Invasion plasmid antigen OS=Shigella boydii GN=ipaH2 PE=4 SV=1	0
+Q3YTH5	4	IPA9_SHISS E3 ubiquitin-protein ligase ipaH9.8 OS=Shigella sonnei (strain Ss046) GN=ipaH9.8 PE=3 SV=1	0
+F7RB44	4	F7RB44_SHIFL E3 ubiquitin-ligase ipaH9.8 domain protein (Fragment) OS=Shigella flexneri J1713 GN=SFJ1713_2631 PE=4 SV=1	0
+F5QZN3	4	F5QZN3_SHIFL E3 ubiquitin-ligase ipaH9.8 domain protein OS=Shigella flexneri 2930-71 GN=SF293071_2372 PE=4 SV=1	0
+Q0T309	4	Q0T309_SHIF8 Invasion plasmid antigen OS=Shigella flexneri serotype 5b (strain 8401) GN=ipaH_5 PE=4 SV=1	0
+F5QZN2	4	F5QZN2_SHIFL E3 ubiquitin-ligase ipaH3 domain protein OS=Shigella flexneri 2930-71 GN=SF293071_2371 PE=4 SV=1	0
+Q8ZQQ2	4	SLRP_SALTY E3 ubiquitin-protein ligase slrP OS=Salmonella typhimurium GN=slrP PE=1 SV=1	0
+P55456	4	Y4FR_RHISN Probable E3 ubiquitin-protein ligase NGR_a03640 OS=Rhizobium sp. (strain NGR234) GN=NGR_a03640 PE=3 SV=1	0
+H0ML72	4	H0ML72_SALMO E3 ubiquitin-protein ligase SlrP (Fragment) OS=Salmonella enterica subsp. enterica serovar Montevideo str. CT_02035321 GN=SEEM5321_16623 PE=4 SV=1	0
+Q0T1J2	4	Q0T1J2_SHIF8 Invasion plasmid antigen OS=Shigella flexneri serotype 5b (strain 8401) GN=ipaH_7 PE=4 SV=1	0
+D2AJY2	4	"D2AJY2_SHIF2 Invasion plasmid antigen, secreted by the Mxi-Spa secretion machinery OS=Shigella flexneri serotype X (strain 2002017) GN=ipaH1.4 PE=4 SV=1"	0
+F7R604	4	F7R604_SHIFL E3 ubiquitin-ligase ipaH3 domain protein OS=Shigella flexneri J1713 GN=SFJ1713_0817 PE=4 SV=1	0
+F7R898	4	F7R898_SHIFL E3 ubiquitin-protein ligase ipaH3 OS=Shigella flexneri J1713 GN=SFJ1713_1619 PE=4 SV=1	0
+Q3Z2I2	4	Q3Z2I2_SHISS Invasion plasmid antigen OS=Shigella sonnei (strain Ss046) GN=ipaH_3 PE=4 SV=1	0
+D2AJA3	4	"D2AJA3_SHIF2 Invasion plasmid antigen, probably secreted by the Mxi-Spa machinery OS=Shigella flexneri serotype X (strain 2002017) GN=ipaH2.5 PE=4 SV=1"	0
+Q7UBY0	4	Q7UBY0_SHIFL Invasion plasmid antigen OS=Shigella flexneri GN=ipaH_7 PE=4 SV=1	0
+E8ZZF6	4	E8ZZF6_SALET 65.4 kDa antigen OS=Salmonella enterica subsp. enterica serovar Weltevreden str. 2007-60-3289-1 GN=slrP PE=4 SV=1	0
+D0ZRB2	4	SLRP_SALT1 E3 ubiquitin-protein ligase slrP OS=Salmonella typhimurium (strain 14028s / SGSC 2262) GN=slrP PE=3 SV=1	0
+Q7UD47	4	Q7UD47_SHIFL Invasion plasmid antigen OS=Shigella flexneri GN=ipaH_2 PE=4 SV=1	0
+Q9AFJ5	4	Q9AFJ5_SHIFL Invasion plasmid antigen OS=Shigella flexneri 5a GN=ipaH1.4 PE=4 SV=1	0
+H0MDW9	4	H0MDW9_SALMO E3 ubiquitin-protein ligase SlrP (Fragment) OS=Salmonella enterica subsp. enterica serovar Montevideo str. CT_02035321 GN=SEEM5321_08219 PE=4 SV=1	0
+P18014	4	IPA7_SHIFL Probable E3 ubiquitin-protein ligase ipaH7.8 OS=Shigella flexneri GN=ipaH7.8 PE=1 SV=2	0
+F7RB42	4	F7RB42_SHIFL E3 ubiquitin-ligase ipaH9.8 domain protein OS=Shigella flexneri J1713 GN=SFJ1713_2626 PE=4 SV=1	0
+B4AAL9	4	B4AAL9_SALNE SspH1 OS=Salmonella enterica subsp. enterica serovar Newport str. SL317 GN=SNSL317_A4499 PE=4 SV=1	0
+F7RAQ3	4	F7RAQ3_SHIFL E3 ubiquitin-ligase ipaH3 domain protein OS=Shigella flexneri J1713 GN=SFJ1713_2495 PE=4 SV=1	0
+Q8RLG0	4	Q8RLG0_BRAJA Y4fR-like protein (Fragment) OS=Bradyrhizobium japonicum PE=4 SV=1	0
+F5R1P6	4	F5R1P6_SHIFL E3 ubiquitin-ligase ipaH9.8 domain protein OS=Shigella flexneri 2930-71 GN=SF293071_3108 PE=4 SV=1	0
+P18009	4	IPA4_SHIFL Probable E3 ubiquitin-protein ligase ipaH4.5 OS=Shigella flexneri GN=ipaH4.5 PE=1 SV=3	0
+Q3K7F2	4	Q3K7F2_PSEPF Leucine rich repeat domain protein OS=Pseudomonas fluorescens (strain Pf0-1) GN=Pfl01_4565 PE=4 SV=1	0
+B3GSN4	4	B3GSN4_SHIBO Invasion plasmid antigen (Fragment) OS=Shigella boydii GN=ipaH6 PE=4 SV=1	0
+Q3YTT4	4	Q3YTT4_SHISS Invasion plasmid antigen OS=Shigella sonnei (strain Ss046) GN=ipaH7.8 PE=4 SV=1	0
+Q0T3F5	4	Q0T3F5_SHIF8 Invasion plasmid antigen OS=Shigella flexneri serotype 5b (strain 8401) GN=ipaH_4 PE=4 SV=1	0
+Q31SH3	4	IPA9_SHIBS E3 ubiquitin-protein ligase ipaH9.8 OS=Shigella boydii serotype 4 (strain Sb227) GN=ipaH9.8 PE=3 SV=1	0
+F5QWI2	4	F5QWI2_SHIFL E3 ubiquitin-ligase ipaH9.8 domain protein OS=Shigella flexneri 2930-71 GN=SF293071_1255 PE=4 SV=1	0
+Q32F09	4	Q32F09_SHIDS Invasion plasmid antigen OS=Shigella dysenteriae serotype 1 (strain Sd197) GN=ipaH_4 PE=4 SV=1	0
+F5QWI1	4	F5QWI1_SHIFL E3 ubiquitin-ligase ipaH9.8 domain protein OS=Shigella flexneri 2930-71 GN=SF293071_1254 PE=4 SV=1	0
+Q31SM7	4	Q31SM7_SHIBS Invasion plasmid antigen OS=Shigella boydii serotype 4 (strain Sb227) GN=ipaH1.4 PE=4 SV=1	0
+Q87XT3	4	Q87XT3_PSESM Leucine rich repeat domain protein OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=PSPTO_4093 PE=4 SV=1	0
+Q3YYZ3	4	Q3YYZ3_SHISS Invasion plasmid antigen OS=Shigella sonnei (strain Ss046) GN=ipaH_5 PE=4 SV=1	0
+Q32D09	4	Q32D09_SHIDS Invasion plasmid antigen OS=Shigella dysenteriae serotype 1 (strain Sd197) GN=ipaH_6 PE=4 SV=1	0
+E9A412	4	E9A412_SALET 65.4 kDa antigen OS=Salmonella enterica subsp. enterica serovar Weltevreden str. 2007-60-3289-1 GN=slrP PE=4 SV=1	0
+Q8Z578	4	Q8Z578_SALTI Secreted effector protein OS=Salmonella typhi GN=sspH2 PE=4 SV=1	0
+Q2THB5	4	Q2THB5_SHIFL Invasion plasmid antigen OS=Shigella flexneri GN=ipaH1.4 PE=4 SV=1	0
+Q3Z2M7	4	Q3Z2M7_SHISS Invasion plasmid antigen OS=Shigella sonnei (strain Ss046) GN=ipaH_2 PE=4 SV=1	0
+Q89TU9	4	Q89TU9_BRAJA Blr1676 protein OS=Bradyrhizobium japonicum GN=blr1676 PE=4 SV=1	0
+Q886T4	4	Q886T4_PSESM Leucine-rich repeat domain protein OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=PSPTO_1492 PE=4 SV=1	0
+Q9AJU5	4	Q9AJU5_SHIFL Putative uncharacterized protein ipaH1.4 OS=Shigella flexneri GN=ipaH1.4 PE=4 SV=1	0
+Q31SM0	4	Q31SM0_SHIBS Invasion plasmid antigen OS=Shigella boydii serotype 4 (strain Sb227) GN=ipaH4.5 PE=4 SV=1	0
+Q8VSC3	4	IPA9_SHIFL E3 ubiquitin-protein ligase ipaH9.8 OS=Shigella flexneri GN=ipaH9.8 PE=1 SV=2	0
+F5QVG6	4	F5QVG6_SHIFL E3 ubiquitin-ligase ipaH9.8 domain protein OS=Shigella flexneri 2930-71 GN=SF293071_0886 PE=4 SV=1	0
+D0ZVG2	4	SSPH1_SALT1 E3 ubiquitin-protein ligase sspH1 OS=Salmonella typhimurium (strain 14028s / SGSC 2262) GN=sspH1 PE=1 SV=1	0
+Q83R64	4	Q83R64_SHIFL Invasion plasmid antigen OS=Shigella flexneri GN=ipaH_4 PE=4 SV=1	0
+D2AJU0	4	IPA9_SHIF2 E3 ubiquitin-protein ligase ipaH9.8 OS=Shigella flexneri serotype X (strain 2002017) GN=ipaH9.8 PE=3 SV=1	0
+Q6XVZ9	4	Q6XVZ9_SHIFL IpaH7.8 OS=Shigella flexneri GN=ipaH7.8 PE=4 SV=1	0
+F5R0B4	4	F5R0B4_SHIFL E3 ubiquitin-ligase ipaH3 domain protein OS=Shigella flexneri 2930-71 GN=SF293071_2619 PE=4 SV=1	0
+Q7BEH4	4	Q7BEH4_SHIFL Invasion plasmid antigen H OS=Shigella flexneri 5a GN=ipaH2.5 PE=4 SV=1	0
+Q320M9	4	Q320M9_SHIBS Invasion plasmid antigen OS=Shigella boydii serotype 4 (strain Sb227) GN=ipaH_5 PE=4 SV=1	0
+Q3YTD2	4	Q3YTD2_SHISS Invasion plasmid antigen OS=Shigella sonnei (strain Ss046) GN=ipaH1.4 PE=4 SV=1	0
+F5QZ34	4	F5QZ34_SHIFL E3 ubiquitin-protein ligase ipaH9.8 OS=Shigella flexneri 2930-71 GN=SF293071_2166 PE=4 SV=1	0
+Q7UAE4	4	Q7UAE4_SHIFL Invasion plasmid antigen OS=Shigella flexneri GN=ipaH_4 PE=4 SV=1	0
+D0ZPH9	4	SSPH2_SALT1 E3 ubiquitin-protein ligase sspH2 OS=Salmonella typhimurium (strain 14028s / SGSC 2262) GN=sspH2 PE=1 SV=1	0
+Q31Z45	4	Q31Z45_SHIBS Invasion plasmid antigen OS=Shigella boydii serotype 4 (strain Sb227) GN=ipaH_6 PE=4 SV=1	0
+Q0T3T7	4	Q0T3T7_SHIF8 Invasion plasmid antigen OS=Shigella flexneri serotype 5b (strain 8401) GN=ipaH_3 PE=4 SV=1	0
+Q7UCT5	28	Q7UCT5_SHIFL Invasion plasmid antigen OS=Shigella flexneri GN=ipaH_3 PE=4 SV=1	0
+F3K1L5	53	F3K1L5_PSESZ Type III effector HopAB2 (Fragment) OS=Pseudomonas syringae pv. tabaci ATCC 11528 GN=PSYTB_15200 PE=4 SV=1	0
+Q4ZMD6	53	HPAB1_PSEU2 Effector protein hopAB1 OS=Pseudomonas syringae pv. syringae (strain B728a) GN=hopAB1 PE=3 SV=1	0
+A5AC84	53	A5AC84_PSESX Avirulence protein AvrPtoB homolog (Fragment) OS=Pseudomonas syringae pv. theae GN=avrPtoB PE=4 SV=1	0
+F3DUQ1	53	F3DUQ1_9PSED Type III effector HopAB2 OS=Pseudomonas syringae pv. morsprunorum str. M302280PT GN=PSYMP_10075 PE=4 SV=1	0
+F3F4A1	53	F3F4A1_9PSED Type III effector HopAB1 OS=Pseudomonas syringae pv. mori str. 301020 GN=PSYMO_27721 PE=4 SV=1	0
+B5S0R3	53	B5S0R3_RALSL Putative avrptob-related type III effector (Partial sequence c terminus) protein OS=Ralstonia solanacearum GN=RSMK00761 PE=4 SV=1	0
+F3DLS4	53	F3DLS4_9PSED Type III effector HopAB1 OS=Pseudomonas syringae pv. aesculi str. 0893_23 GN=PSYAE_25660 PE=4 SV=1	0
+E7PDN5	53	E7PDN5_PSESG Type III effector HopAB1 OS=Pseudomonas syringae pv. glycinea str. B076 GN=PsgB076_27960 PE=4 SV=1	0
+Q8RSY1	53	HPAB2_PSESM Effector protein HopAB2 OS=Pseudomonas syringae pv. tomato (strain DC3000) GN=hopAB2 PE=1 SV=1	0
+E7PH19	53	E7PH19_PSESG Type III effector HopAB1 OS=Pseudomonas syringae pv. glycinea str. race 4 GN=Pgy4_28225 PE=4 SV=1	0
+F3F3B2	53	F3F3B2_9PSED Type III effector HopAB2 OS=Pseudomonas syringae pv. mori str. 301020 GN=PSYMO_25909 PE=4 SV=1	0
+E2MHW0	53	E2MHW0_PSEUB Type III effector hopAB3 OS=Pseudomonas syringae pv. tomato T1 GN=PSPTOT1_1462 PE=4 SV=1	0
+F3EGS9	53	F3EGS9_PSESL Type III effector HopAB2 OS=Pseudomonas syringae pv. lachrymans str. M301315 GN=PLA107_19801 PE=4 SV=1	0
+A5AC83	53	A5AC83_9PSED Avirulence protein AvrPtoB homolog OS=Pseudomonas avellanae GN=avrPtoB PE=4 SV=1	0
+F3HH82	53	F3HH82_PSEYM Type III effector HopAB2 (Fragment) OS=Pseudomonas syringae pv. maculicola str. ES4326 GN=PMA4326_07679 PE=4 SV=1	0
+F2ZKN4	53	F2ZKN4_9PSED Type III effector HopAB2 OS=Pseudomonas syringae pv. oryzae str. 1_6 GN=POR16_14592 PE=4 SV=1	0
+D7HZJ6	53	D7HZJ6_PSESS Effector protein hopAB1 OS=Pseudomonas savastanoi pv. savastanoi NCPPB 3335 GN=PSA3335_2333 PE=4 SV=1	0
+Q8RK09	53	HPAB1_PSESS Effector protein hopAB1 OS=Pseudomonas syringae pv. savastanoi GN=hopAB1 PE=3 SV=1	0
+Q2QCI9	53	HPAB3_PSEUB Effector protein HopAB3 OS=Pseudomonas syringae pv. tomato GN=hopAB3 PE=1 SV=1	0
+F3IHD9	53	F3IHD9_PSESL Type III effector HopAB2 OS=Pseudomonas syringae pv. lachrymans str. M302278PT GN=PLA106_10666 PE=4 SV=1	0
+G4XKY5	53	G4XKY5_PSESG Type III effector protein hopAB1 OS=Pseudomonas syringae pv. glycinea PE=4 SV=1	0
+Q57MS9	55	SOPA_SALCH E3 ubiquitin-protein ligase SopA OS=Salmonella choleraesuis GN=sopA PE=3 SV=2	0
+B4TMK5	55	SOPA_SALSV E3 ubiquitin-protein ligase SopA OS=Salmonella schwarzengrund (strain CVM19633) GN=sopA PE=3 SV=1	0
+F1ALZ1	55	F1ALZ1_SALDE Effector protein SopA (Fragment) OS=Salmonella derby GN=sopA PE=4 SV=1	0
+B5EX33	55	SOPA_SALA4 E3 ubiquitin-protein ligase SopA OS=Salmonella agona (strain SL483) GN=sopA PE=3 SV=1	0
+B5FM34	55	SOPA_SALDC E3 ubiquitin-protein ligase SopA OS=Salmonella dublin (strain CT_02021853) GN=sopA PE=3 SV=1	0
+F1ALY9	55	F1ALY9_SALDE Effector protein SopA (Fragment) OS=Salmonella derby GN=sopA PE=4 SV=1	0
+C9X8K0	55	SOPA_SALTD E3 ubiquitin-protein ligase SopA OS=Salmonella typhimurium (strain D23580) GN=sopA PE=3 SV=1	0
+D0ZMG9	55	SOPA_SALT1 E3 ubiquitin-protein ligase SopA OS=Salmonella typhimurium (strain 14028s / SGSC 2262) GN=sopA PE=3 SV=1	0
+F1ALY8	55	F1ALY8_SALDE Effector protein SopA (Fragment) OS=Salmonella derby GN=sopA PE=4 SV=1	0
+B4SX34	55	SOPA_SALNS E3 ubiquitin-protein ligase SopA OS=Salmonella newport (strain SL254) GN=sopA PE=3 SV=1	0
+F1ALZ0	55	F1ALZ0_SALDE Effector protein SopA (Fragment) OS=Salmonella derby GN=sopA PE=4 SV=1	0
+Q8X5G6	55	Q8X5G6_ECO57 Putative secreted effector protein OS=Escherichia coli O157:H7 GN=ECs1560 PE=1 SV=1	0
+F1ALY6	55	F1ALY6_SALDE Effector protein SopA (Fragment) OS=Salmonella derby GN=sopA PE=4 SV=1	0
+B4T918	55	SOPA_SALHS E3 ubiquitin-protein ligase SopA OS=Salmonella heidelberg (strain SL476) GN=sopA PE=3 SV=1	0
+E9A3G0	55	E9A3G0_SALET Putative uncharacterized protein yjbI OS=Salmonella enterica subsp. enterica serovar Weltevreden str. 2007-60-3289-1 GN=sopA PE=4 SV=1	0
+B5QZK6	55	SOPA_SALEP E3 ubiquitin-protein ligase SopA OS=Salmonella enteritidis PT4 (strain P125109) GN=sopA PE=3 SV=1	0
+H0NA99	55	H0NA99_SALET E3 ubiquitin-protein ligase SopA OS=Salmonella enterica subsp. enterica serovar Pomona str. ATCC 10729 GN=SEEPO729_01704 PE=4 SV=1	0
+F1ALZ2	55	F1ALZ2_SALDE Effector protein SopA (Fragment) OS=Salmonella derby GN=sopA PE=4 SV=1	0
+E8GT54	55	E8GT54_SALMO E3 ubiquitin-protein ligase SopA OS=Salmonella enterica subsp. enterica serovar Montevideo str. IA_2010008287 GN=SEEM8287_09642 PE=4 SV=1	0
+Q5X159	56	LUBX_LEGPA E3 ubiquitin-protein ligase LubX OS=Legionella pneumophila (strain Paris) GN=lubX PE=3 SV=1	0
+E5AB36	65	E5AB36_LEPMJ Similar to E3 ubiquitin-protein ligase bre1 OS=Leptosphaeria maculans (strain JN3 / isolate v23.1.3 / race Av1-4-5-6-7-8) GN=LEMA_P020070.1 PE=4 SV=1	0
+E5R4B4	66	E5R4B4_LEPMJ Similar to E3 ubiquitin-protein ligase RSP5 OS=Leptosphaeria maculans (strain JN3 / isolate v23.1.3 / race Av1-4-5-6-7-8) GN=LEMA_P045880.1 PE=4 SV=1	0
+E4ZKD9	67	E4ZKD9_LEPMJ Similar to ubiquitin-protein ligase E3 OS=Leptosphaeria maculans (strain JN3 / isolate v23.1.3 / race Av1-4-5-6-7-8) GN=LEMA_P072420.1 PE=4 SV=1	0
+E5ABX8	68	E5ABX8_LEPMJ Similar to solute carrier family 35 member E3 OS=Leptosphaeria maculans (strain JN3 / isolate v23.1.3 / race Av1-4-5-6-7-8) GN=LEMA_P022990.1 PE=4 SV=1	0
+O84876	76	CDUB1_CHLTR Deubiquitinase and deneddylase Dub1 OS=Chlamydia trachomatis (strain D/UW-3/Cx) GN=cdu1 PE=1 SV=1	0
+O84875	76	CDUB2_CHLTR Deubiquitinase and deneddylase Dub2 OS=Chlamydia trachomatis (strain D/UW-3/Cx) GN=cdu2 PE=1 SV=1	0
+B0B9A0	76	CDUB1_CHLT2 Deubiquitinase and deneddylase Dub1 OS=Chlamydia trachomatis serovar L2 (strain 434/Bu / ATCC VR-902B) GN=cdu1 PE=1 SV=1	0
+P08393	77	ICP0_HHV11 E3 ubiquitin-protein ligase ICP0 OS=Human herpesvirus 1 (strain 17) GN=ICP0 PE=1 SV=1	0
+P29128	78	ICP0_BHV1J E3 ubiquitin-protein ligase ICP0 OS=Bovine herpesvirus 1.1 (strain Jura) GN=BICP0 PE=3 SV=1	0
+P29129	78	ICP0_SUHVF E3 ubiquitin-protein ligase ICP0 OS=Suid herpesvirus 1 (strain Indiana-Funkhauser / Becker) GN=EP0 PE=2 SV=1	0
+P28284	78	ICP0_HHV2H E3 ubiquitin-protein ligase ICP0 OS=Human herpesvirus 2 (strain HG52) GN=RL2 PE=3 SV=1	0
+P09309	78	IE61_VZVD E3 ubiquitin-protein ligase IE61 OS=Varicella-zoster virus (strain Dumas) GN=61 PE=1 SV=1	0
+E2IUH0	78	E2IUH0_SHV1 Ubiquitin E3 ligase ICP0 OS=Saimiriine herpesvirus 1 (strain MV-5-4-PSL) GN=RL2 PE=4 SV=1	0
+P29836	78	ICP0_BHV1K E3 ubiquitin-protein ligase ICP0 OS=Bovine herpesvirus 1.2 (strain K22) GN=BICP0 PE=3 SV=1	0
+O37928	78	O37928_FHV1 Ubiquitin E3 ligase ICP0 OS=Feline herpesvirus 1 GN=ICP0 PE=4 SV=1	0
+P28990	78	ICP0_EHV1B E3 ubiquitin-protein ligase ICP0 OS=Equine herpesvirus 1 (strain Ab4p) GN=63 PE=1 SV=1	0
+A9QNZ2	120	A9QNZ2_SALET SopA OS=Salmonella enterica subsp. enterica serovar Choleraesuis GN=sopA PE=4 SV=1	0
+B4TLH1	120	B4TLH1_SALET Plasmid partition protein SopA OS=Salmonella enterica subsp. enterica serovar Kentucky str. CVM29188 GN=sopA PE=4 SV=1	0
+Q5QJJ2	120	Q5QJJ2_SALTY Stabilization of plasmid protein A OS=Salmonella typhimurium GN=sopA PE=4 SV=1	0
+B4TLW9	120	B4TLW9_SALSV Plasmid partition protein SopA OS=Salmonella schwarzengrund (strain CVM19633) GN=sopA PE=4 SV=1	0
