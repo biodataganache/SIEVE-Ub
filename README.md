@@ -1,3 +1,5 @@
+Code to accompany the paper (currently preprint): https://peerj.com/preprints/27292/
+
 # SIEVE-Ub
 Code and data for the SIEVE-Ub prediction algorithm for prediction of E3 ubiquitin ligase mimics
 
