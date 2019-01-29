@@ -10,6 +10,11 @@ Rmarkdown to demonstrate use of SIEVE-Ub models for prediction of E3 ubiquitin l
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
+# as per reviewer #2 request - setting the random seed here such that code executes consistently below
+# Note: we examine the effect of different random seeds on the stability of main result below, which
+#       involves setting different random seeds
+set.seed(1024)
+
 # load R functions to run SVM cross-validation, etc.
 source("SIEVEUb.R")
 ```
@@ -33,6 +38,7 @@ source("SIEVEUb.R")
 
 ```
 
+The following gets cross-validation performance results from multiple different kmer lengths and encodings. These sets of feature files and directories must be generated using the accompanying Python code in a somewhat manual fashion.
   
 ``` {r analysis}
   # writing a function to move through the sweep
@@ -51,11 +57,12 @@ source("SIEVEUb.R")
   
   # this just performs the same analysis a bunch of times to see what the
   #   variability from train/test divisions is
-  kmer_run = function(fname, this_factor, this_families, ntimes=10, niter=100) {
+  kmer_run = function(fname, this_factor, this_families, ntimes=10, niter=100, downsample_families=NA) {
     data = read.table(fname, sep="\t", row.names=1, header=1, stringsAsFactors = F)
     results = c()
     for (i in 1:ntimes) {
-      svm_cv = family_bootstrap_svm(t(as.matrix(data[names(this_factor),])), this_factor, this_families, niter=niter)
+      svm_cv = family_bootstrap_svm(t(as.matrix(data[names(this_factor),])), this_factor, 
+                                    this_families, niter=niter, downsample_families=downsample_families)
       print(svm_cv$auc)
       results = c(results, svm_cv$auc)
     }
@@ -85,6 +92,19 @@ source("SIEVEUb.R")
   sieveub_model = svm(x=ubex_k14red0[names(ubex_fact),], ubex_fact, probability=T)
   
   
+```
+
+Examine the cross-validation results on the model using different random seeds
+
+``` {r random-seed}
+set.seed(1024)
+res1 = kmer_run("data/red0/ubligase_k14.red0.train", ubex_fact, ubex_families)
+set.seed(4506)
+res2 = kmer_run("data/red0/ubligase_k14.red0.train", ubex_fact, ubex_families)
+set.seet(1209092)
+res3 = kmer_run("data/red0/ubligase_k14.red0.train", ubex_fact, ubex_families)
+
+
 ```
 
 ``` {r model-application}

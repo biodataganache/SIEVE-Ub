@@ -64,7 +64,7 @@ validate_svm <- function(train_data=NA, train_model=NA, test_data=NA, train_fact
 	return(list(test_auc=auc, model=thismodel, predictions=attr(thesepredictions, "probabilities")))
 }
 
-family_bootstrap_svm <- function(data, factor, family, training_division=0.5, niter=10) {
+family_bootstrap_svm <- function(data, factor, family, training_division=0.5, niter=10, downsample_families=NA) {
 	# takes data as a set of features (rows) and examples (columns) such as
 	#       from microrarry data
 	# family is a vector of values for family calls that corresponds to the items in factor
@@ -73,6 +73,8 @@ family_bootstrap_svm <- function(data, factor, family, training_division=0.5, ni
 	# Training_division is how much is held out for training versus testing
 	#       on each iteration
 	# niter is the number of times to repeat the bootstrapping
+  # downsample_families: if not NA should be an integer that limits family size to that number or smaller
+  #                      of members. Larger families are randomly downsampled to that size.
 	res = c()
 	prob = matrix(nrow=length(factor), ncol=niter+1)
 	rownames(prob) = names(factor)
@@ -81,16 +83,28 @@ family_bootstrap_svm <- function(data, factor, family, training_division=0.5, ni
 	
 	cat("Running Family-wise bootstrap SVM ", niter, " times\n")
 	
-	# assumes that family numbers are linear
-	families = 1:max(family)
+	families = unique(sort(family))
 
 	for (i in 1:niter) {
+		# downsample families
+		these_families = family
+		if (!is.na(downsample_families)) {
+		  these_families = c()
+		  
+		  for (j in families) {
+		    this_one = family[which(family == j)]
+		    if (length(this_one)>downsample_families) this_one = sample(this_one, downsample_families)
+		    these_families = c(these_families, this_one)
+		  }
+		}
+	
 		#ensure that examples are taken out as families
-		trx = sample(families, max(family)*training_division)
+		trx = sample(families, length(families)*training_division)
 		tex = families[which(!families %in% trx)]
 		
-		training = names(family)[which(family %in% trx)]
-		testing = names(family)[which(family %in% tex)]
+		training = names(these_families)[which(these_families %in% trx)]
+		testing = names(these_families)[which(these_families %in% tex)]
+		
 		
 		thismodel = try(svm(x=t(data[,training]), factor[training], probability=T), TRUE)
 		if (class(thismodel)=="try-error") next
