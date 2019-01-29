@@ -1,13 +1,16 @@
 ---
 title: "SIEVEUb"
 author: "Jason McDermott"
-date: "9/18/2018"
+date: "1/28/2019"
 output: html_document
 ---
+
+Rmarkdown to demonstrate use of SIEVE-Ub models for prediction of E3 ubiquitin ligase mimics from protein sequences. These blocks recreate much of the analysis from the PeerJ preprint at (https://peerj.com/preprints/27292/)
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
+# load R functions to run SVM cross-validation, etc.
 source("SIEVEUb.R")
 ```
 
