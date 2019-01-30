@@ -34,7 +34,7 @@ Q87W07	18	Q87W07_PSESM Type III effector HopI1 OS=Pseudomonas syringae pv. tomat
 Q5ZSB6	19	Q5ZSB6_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2603 PE=4 SV=1	1
 Q5ZWI4	19	Q5ZWI4_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1101 PE=4 SV=1	1
 Q5ZSQ3	19	Q5ZSQ3_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2464 PE=1 SV=1	1
-Q5ZYH0	20	Q5ZYH0_LEGPH Putative ankyrin-repeat containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legA9 PE=4 SV=1	1
+Q5ZYH0	13	Q5ZYH0_LEGPH Putative ankyrin-repeat containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legA9 PE=4 SV=1	1
 Q5ZTE7	21	Q5ZTE7_LEGPH Ankyrin repeat-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legA2 PE=4 SV=1	1
 Q5ZUG2	22	Q5ZUG2_LEGPH Coiled coil domain protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1836 PE=4 SV=1	1
 Q5ZWH5	23	Q5ZWH5_LEGPH Putative uncharacterized protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg1110 PE=4 SV=1	1
@@ -219,7 +219,7 @@ Q5ZUP2	161	Q5ZUP2_LEGPH Putative uncharacterized protein OS=Legionella pneumophi
 Q5ZTI6	162	SGPL_LEGPH Probable sphingosine-1-phosphate lyase OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=lpg2176 PE=3 SV=2	1
 Q5ZTL7	163	Q5ZTL7_LEGPH F-box protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legAU13 PE=4 SV=1	1
 Q5ZTM4	164	Q5ZTM4_LEGPH Calmodulin-dependent protein kinase OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legK2 PE=4 SV=1	1
-Q5ZXN6	165	Q5ZXN6_LEGPH Ankyrin repeat-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legA8 PE=4 SV=1	1
+Q5ZXN6	13	Q5ZXN6_LEGPH Ankyrin repeat-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legA8 PE=4 SV=1	1
 Q5ZZ40	166	Q5ZZ40_LEGPH FBOX-containing protein OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legU1 PE=4 SV=1	1
 Q5ZSG1	167	Q5ZSG1_LEGPH Putative uncharacterized protein legK3 OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legK3 PE=4 SV=1	1
 Q5ZWY8	168	"Q5ZWY8_LEGPH Gala protein type 1, 3 or 4 OS=Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513) GN=legL1 PE=4 SV=1"	1
