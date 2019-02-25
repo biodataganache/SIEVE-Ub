@@ -3,6 +3,7 @@ Code and data for the SIEVE-Ub prediction algorithm for prediction of E3 ubiquit
 
 Accompanies the preprint: https://peerj.com/preprints/27292/
 
+<pre>
 Files:
 KmerFeatures.py : Python code that transforms a protein fasta file into kmer features suitable for use
                   with. the SIEVEUb.R code.
@@ -21,6 +22,21 @@ data/PATRIC.genomes : list of genomes from PATRIC used in the paper
 data/PATRIC_secretion_systems.txt : Type III, IV, and VI secretion system components identified in each PATRIC genome used
 data/SIEVEUb_best_model.Rdata : Rdata file containing the best Ub ligase model
 data/SIEVEUb_minimal_model.Rdata : Rdata file containing the minimal Ub. ligase model with 10 features
+data/best_model_1280features.txt : list of features included in the best Ub ligase predictive model
+data/legionella_examples.fasta : FASTA protein sequence for newly discovered UUb ligase RavN
+data/legionella_examples_k14red0_minimal10.txt : feature file for RavN using the minimal model identified
+data/minimal_model_10features.txt : kmers contained in the 10 kmer minimal model
+data/patric_ubligase_predictions_best_model.txt.gz : predictions for the PATRIC subset used in the paper with the best
+                   Ub ligase predictive model
+data/ubligase_examples_ids.fasta : FASTA file containing protein sequences of positive and negative examples used in this
+       study. Please see FamiliesConservative.txt for information about these sequences.
+data/ubligase_examples_ids_minimal_model_10features.html : HTML file that lists the examples used in this study and where
+       the top 10 most predictive kmers map to the sequences.
+data/ubligase_examples_ids_minimal_model_10features.tab : List of most predictive 10 kmers locations in each of the examples
+       used in the study.
+data/uniprot_search.readme : short description of Uniprot search and filtering process used to identify positive
+       examples for E3 ubiquitin ligase
+</pre>
 
 This material was prepared as an account of work sponsored by an agency of the
 United States Government.  Neither the United States Government nor the United
