@@ -64,15 +64,20 @@ validate_svm <- function(train_data=NA, train_model=NA, test_data=NA, train_fact
 	return(list(test_auc=auc, model=thismodel, predictions=attr(thesepredictions, "probabilities")))
 }
 
-family_bootstrap_svm <- function(data, factor, family, training_division=0.5, niter=10) {
+family_bootstrap_svm <- function(data, factor, family, training_division=0.5, niter=10, 
+                                 downsample_families=NA, oldmean=NA) {
 	# takes data as a set of features (rows) and examples (columns) such as
 	#       from microrarry data
-	# family is a vector of values for family calls that corresponds to the items in factor
+	# family is a vector of values for family calls that corresponds to the items in factor. This identifies
+  #       groups of examples that are similar to each other- for example, when examined using traditional
+  #       methods.
 	# A corresponding set of factors must be included which are named as
-	#       the columns of the data and are binary
+	#       the columns of the data and are binary for positive and negative examples in the dataset
 	# Training_division is how much is held out for training versus testing
 	#       on each iteration
 	# niter is the number of times to repeat the bootstrapping
+  # downsample_families: if not NA should be an integer that limits family size to that number or smaller
+  #                      of members. Larger families are randomly downsampled to that size.
 	res = c()
 	prob = matrix(nrow=length(factor), ncol=niter+1)
 	rownames(prob) = names(factor)
@@ -81,24 +86,54 @@ family_bootstrap_svm <- function(data, factor, family, training_division=0.5, ni
 	
 	cat("Running Family-wise bootstrap SVM ", niter, " times\n")
 	
-	# assumes that family numbers are linear
-	families = 1:max(family)
+	families = unique(sort(family))
 
+	
+	# given that the selection of training families is random, we should run this process a number
+	#    of times to ensure that we're getting a good sampling of these divisions.
+	#    Thus we'll run niter times
 	for (i in 1:niter) {
+		# downsample families. This provides an optional upper threshold on the size
+	  #     of individual families. This is mainly to test whether the presence of large 
+	  #     families could skew results (it doesn't seem to).
+		these_families = family
+		if (!is.na(downsample_families)) {
+		  these_families = c()
+		  
+		  for (j in families) {
+		    this_one = family[which(family == j)]
+		    if (length(this_one)>downsample_families) this_one = sample(this_one, downsample_families)
+		    these_families = c(these_families, this_one)
+		  }
+		}
+	
 		#ensure that examples are taken out as families
-		trx = sample(families, max(family)*training_division)
+		# to do this we select entire families for training division instead of individual examples.
+		#       This process ensures that 'trivial' relationships in family members don't artficially
+		#       inflate the performance. That would happen by selection of one family member for the
+		#       training set, and another example from the same family going in to the testing set.
+		#       family-wise cross-validation prevents this from happening and provides a conservative
+		#       estimate of performance.
+		trx = sample(families, length(families)*training_division)
 		tex = families[which(!families %in% trx)]
 		
-		training = names(family)[which(family %in% trx)]
-		testing = names(family)[which(family %in% tex)]
+		# now use the families to select the corresponding examples
+		training = names(these_families)[which(these_families %in% trx)]
+		testing = names(these_families)[which(these_families %in% tex)]
 		
+		#browser()
+		
+		# train a model based on the training set and...
 		thismodel = try(svm(x=t(data[,training]), factor[training], probability=T), TRUE)
 		if (class(thismodel)=="try-error") next
+		
+		# evaluate it's performance on the held out testing set
 		thesepredictions = try(predict(thismodel, t(data[,testing]), probability=T), TRUE)
 		if (class(thesepredictions)=="try-error") next
 		
 		models = c(models, list(thismodel))
 			
+		# calculate an ROC AUC from the prediction as the performance
 		class_auc = try(auc(factor[testing], attr(thesepredictions, "probabilities")[,1]), TRUE)
 		if (class(class_auc) == "try-error") class_auc = NA
 		
@@ -108,13 +143,90 @@ family_bootstrap_svm <- function(data, factor, family, training_division=0.5, ni
 		
 		res = c(res, class_auc)
 	}
+	
+	# There was an issue with this process. It seems that when the model loses it's ability
+	#  to disciriminate between positive and negative examples the distribution of proteins in
+	#  families starts producing highly odd results skewed in favor of some families
+	#  and thus inflating the ability of the model to predict.
+	# This issue has been fixed by normalizing the probabilities from each iteration prior to averaging.
+	
+	#if (oldmean) prob[,(i+1)] = sapply(rownames(prob), function (r) max(prob[r,1:niter], na.rm=T))
+	#browser()
+	if (is.na(oldmean)) {
+	  prob[,1:niter] = sapply(1:niter, function (i) prob[,i]/max(prob[,i], na.rm=T))
+	}
 	prob[,(i+1)] = sapply(rownames(prob), function (r) mean(prob[r,1:niter], na.rm=T))
+	
+	#browser()
+	
 	overall = auc(factor, prob[,"mean"])
 	
+	#browser()
 	return(list(auc=overall, aucs=res, probs=prob, models=models))
 }
 
-svmrfeCrossFeatureRanking = function(x, y, family, stepamount=0.5, training_division=0.5, niter=10, fbs_niter=10) {
+svmrfeFeatureRanking = function(x,y, stepamount=0.5) {
+  # where x is the data - columns are features
+  #       y is a class factor for the examples
+  n = ncol(x)
+  survivingFeaturesIndexes = seq(1:n) 
+  featureRankedList = colnames(x)
+  scoresRankedList = vector(length=n) 
+  rankedFeatureIndex = n
+  step_length = length(featureRankedList)
+  
+  results = list()
+  i = 0 
+  while(step_length>2) {
+    i = i + 1
+    
+    #train the support vector machine
+    svmModel = svm(x[, featureRankedList], y, scale=F, probability=T)
+    #return(svmModel)
+    #compute the weight vector
+    w = t(svmModel$coefs)%*%svmModel$SV
+    #w = svmModel$coefs
+    #compute ranking criteria
+    rankingCriteria = w * w
+    #rank the features
+    ranking = sort(rankingCriteria, index.return = TRUE)
+    
+    stepx = as.integer(length(ranking$ix)*stepamount)
+    
+    # remove the lowest portion of the ranked features
+    removal = ranking$ix[1:stepx]
+    scores = w[ranking$ix][1:stepx]
+    
+    #thesepredictions = predict(svmModel, x[,survivingFeaturesIndexes], probability=T)
+    
+    #step_auc = try(auc(y, attr(thesepredictions, "probabilities")))
+    step_auc = auc(y, unlist(svmModel$decision.values[,1]))
+    
+    step_length = length(featureRankedList)
+    
+    scoresRankedList = scores
+    featureRankedList = colnames(rankingCriteria)[ranking$ix[(stepx+1):length(ranking$ix)]]
+    
+    #update weights
+    #scoresRankedList[rankedFeatureIndex:(rankedFeatureIndex-length(scores))] = scores
+    
+    #update feature ranked list
+    #featureRankedList[rankedFeatureIndex:(rankedFeatureIndex-length(removal))] = survivingFeaturesIndexes[removal]
+    
+    #eliminate the features with smallest ranking criterion 
+    #survivingFeaturesIndexes = survivingFeaturesIndexes[-removal]
+    #rankedFeatureIndex = rankedFeatureIndex-length(removal)
+    
+    cat("Remaining features: ", length(featureRankedList), "\n")
+    #browser()
+    
+    results[[i]] = list(nfeatures=step_length, auc=step_auc, features=featureRankedList, weights=scoresRankedList)
+  }
+  return (results)
+}
+
+svmrfeCrossFeatureRanking = function(x, y, family, stepamount=0.5, training_division=0.5, 
+                                     niter=10, fbs_niter=10, downsample_families=NA) {
   # where x is the data - columns are features
   #       y is a class factor for the examples
   n = ncol(x)
@@ -138,14 +250,16 @@ svmrfeCrossFeatureRanking = function(x, y, family, stepamount=0.5, training_divi
     
     # get the 'base' performance for this set of features
     svm_base = family_bootstrap_svm(t(x[,survivingFeaturesIndexes]), y, family, 
-                                    training_division=training_division, niter=fbs_niter)
+                                    training_division=training_division, niter=fbs_niter,
+                                    downsample_families = downsample_families)
     
     # now calculate weights for features
     for (iter in 1:niter) {
       # randomly sample the feature space at the stepamount
       these_features = sample(survivingFeaturesIndexes, length(survivingFeaturesIndexes)*stepamount)
       #train the support vector machine
-      svm_cross = try(family_bootstrap_svm(t(x[,these_features]), y, family, training_division=training_division, niter=fbs_niter))
+      svm_cross = try(family_bootstrap_svm(t(x[,these_features]), y, family, training_division=training_division, 
+                                           niter=fbs_niter, downsample_families = downsample_families))
       if (class(svm_cross)=="try-error") next
       
       # now assign
@@ -158,6 +272,8 @@ svmrfeCrossFeatureRanking = function(x, y, family, stepamount=0.5, training_divi
     w = colMeans(weights, na.rm=T)
     
     step_auc = svm_base$auc
+    # testing this
+    #step_auc = mean(svm_base$aucs)
     
     #compute ranking criteria
     rankingCriteria = w * w
@@ -186,106 +302,58 @@ svmrfeCrossFeatureRanking = function(x, y, family, stepamount=0.5, training_divi
     #update feature ranked list
     featureRankedList = colnames(x)[keeping]
     
+    results[[i]] = list(nfeatures=length(survivingFeaturesIndexes), auc=step_auc, aucs=svm_base$aucs, features=featureRankedList, weights=scoresRankedList)
+    
     #eliminate the features with smallest ranking criterion 
     survivingFeaturesIndexes = survivingFeaturesIndexes[-removal]
     
-    results[[i]] = list(nfeatures=length(survivingFeaturesIndexes), auc=step_auc, features=featureRankedList, weights=scoresRankedList)
-    
   }
   return (results)
 }
 
-svmCrossFeatureSensitivity = function(datamat, class_fact, families, training_division=0.5, feature_division=0.5, niter=1000) {
-  n = ncol(datamat)
-   
-  # for this the objective is to capture information about the impact of features on prediction
-  #     of examples and the impact of proteins in the training set on prediction of examples in
-  #     the testing set. This information can tell us two main things: 1) for a given example
-  #     what are the features most important to successfully predicting it, and 2) which other
-  #     examples are the most responsible for its prediction- that is what are the most similar
-  #     other examples?
-  # This is a bit like RFE except without the elimination. We are only interested in doing it a
-  #     bunch of times to build up good numbers on these relationships.
+family_counts = function(data, families, these_fact) {
+  # first we make sure we get rid of multiple counts from the same protein
+  data = as.matrix(data)
+  data[which(data>0)] = 1
   
-  # First we need to create results matrices
-  
-  protein_results = matrix(0, nrow=nrow(datamat), ncol=nrow(datamat), dimnames=list(rownames(datamat), rownames(datamat)))
-  # give the counts a small value so we don't get divide by 0 NaNs
-  protein_counts = matrix(0.01, nrow=nrow(datamat), ncol=nrow(datamat), dimnames=list(rownames(datamat), rownames(datamat)))
-  feature_results = matrix(0, nrow=nrow(datamat), ncol=ncol(datamat), dimnames=dimnames(datamat))
-  feature_counts = matrix(0.01, nrow=nrow(datamat), ncol=ncol(datamat), dimnames=dimnames(datamat))
-  
-  for (i in 1:niter) {
-    # randomly select a set of features to test
-    these_features = sample(colnames(datamat), ncol(datamat)*feature_division)
-    
-    # we need to 
-    # 1) select a set of examples for training and then for testing
-    # 2) train the svm on the training set
-    # 3) predict on the testing set
-    # 4) appropriately update the results matrices with the prediction probabilities
-    
-    # pulled from family_bootstrap_svm
-    #ensure that examples are taken out as families
-    trx = sample(1:max(families), max(families)*training_division)
-   
-    training = names(families)[which(families %in% trx)]
-    testing = names(families)[which(!families %in% trx)]
-    
-    thismodel = try(svm(x=datamat[training,these_features], class_fact[training], probability=T), FALSE)
-    if (class(thismodel)=="try-error") next
-    thesepredictions = try(predict(thismodel, datamat[testing,these_features], probability=T), FALSE)
-    if (class(thesepredictions)=="try-error") next
-    
-    predictions = attr(thesepredictions, "probabilities")[,1]
-    
-    #browser()
-    
-    protein_results[names(predictions), training] = protein_results[names(predictions), training] + predictions
-    protein_counts[names(predictions),training] = protein_counts[names(predictions),training] + 1
-    
-    feature_results[names(predictions),these_features] = feature_results[names(predictions),these_features] + predictions
-    feature_counts[names(predictions),these_features] = feature_counts[names(predictions),these_features] + 1
-    
-    #browser()
+  results = matrix(ncol=5, nrow=ncol(data))
+  rownames(results) = colnames(data)
 
+  for (i in 1:ncol(data)) {
+    pcount = 0
+    pscore = 0
+    ncount = 0
+    nscore = 0
+    pos = 0
+    neg = 0
+    
+    for (fam in unique(families)) {
+      famil = names(which(families==fam))
+      #print(fam)
+      
+      # we'll use a weighted score for each kmer in families
+      count = sum(data[famil,i])
+      score = count/length(famil)
+      
+      # this assumes that all in the family are labeled the same way
+      # if they're not then that might be an issue overall
+      if (these_fact[famil][length(famil)]=="positive") {
+        pcount = pcount + count
+        pscore = pscore + score
+        pos = pos + 1
+        #print(c(ncol(data), count, length(famil)))
+        #browser()
+      } 
+      else {
+        ncount = ncount + count
+        nscore = nscore + score
+        neg = neg + 1
+      }
+    }
+    pscore = pscore/pos
+    nscore = nscore/neg
+    results[i,] = c(pcount, pscore, ncount, nscore, pscore-nscore)
   }
-  results = list(protein_results=protein_results/protein_counts, 
-                 feature_results=feature_results/feature_counts, 
-                 protein_counts=protein_counts, feature_counts=feature_counts)
-  return (results)
-}
-
-# script to run SIEVEUb on example data
-SIEVEUb = function() {
-  # To generate features from a fasta file use the following command
-  #    from the SIEVEServer code
-  # SIEVEFeatures.py -f [fasta file] -o [output base] -m gist -s k:14:::reduced_alphabet_0
-  
-  
-  # read in data file about examples (class and sequence family)
-  ubex_classes = read.table("FamiliesConservative_10_04_2013.txt", sep="\t", header=1, row.names=1)
-  ubex_fact = factor(x=ubex_classes[,3], labels=c("positive", "negative"))
-  ubex_families = ubex_classes[,1]
-  
-  # this is a matrix of features from examples
-  ubex_k14red0 = read.table("ubligase_k14red0.txt", sep="\t", row.names=1, header=1, stringsAsFactors=F)
-  # filter out those features with minimal representation in examples
-  ubex_k14red0r1 = ubex_k14red0[,which(sapply(colnames(ubex_k14red0), function (c) sum(ubex_k14red0[,c] != 0)>9))]
-  
-  # do a 100-fold cross validation
-  ubex_k14red0r1_cv1 = family_bootstrap_svm(t(as.matrix(ubex_k14red0r1[names(ubex_fact),])), ubex_fact, ubex_families, niter=100)
-  ubex_k14red0r1_cv1$auc
-  
-  # do a recursive feature elimination
-  ubex_k14red0r1_rfe = svmrfeFeatureRanking(ubex_k14red0r1[ubex_fact,], ubex_fact, 0.25)
-  
-  #train model and apply it to salmonella genome
-  salm_k14red0 = read.table("salmonella_lt2_k14red0.txt", sep="\t", row.names=1, header=1, stringsAsFactors=F)
-  salm_k14red0r1 = salm_k14red0[,colnames(ubex_k14red0r1)]
-  
-  results = validate_svm(t(ubex_k14red0r1), t(salm_k14red0r1), ubex_fact)
   return(results)
-} 
-
+}
 

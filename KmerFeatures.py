@@ -143,7 +143,7 @@ def output_sieve_features(features=None, filehandle=None, example_index={}, **kw
     filehandle.flush()
     
 def string_vectorize(residues=None, sequence=None, kmer=3, start=None, end=None, map_function=None, return_labels=None,
-                     feature_dict=None, filter_list=None, exclusion_list=None, return_dict=None, **kw):
+                     feature_dict=None, filter_list=None, exclusion_list=None, return_dict=None, kmer_output=None, **kw):
     def identity(character, **kw):
         return character
 
@@ -259,6 +259,9 @@ def string_vectorize(residues=None, sequence=None, kmer=3, start=None, end=None,
         #if filter_dict:
         #    print(filter_dict.keys())
         #    print(kstring)
+        
+        if kmer_output:
+          print(i, "\t", kmap, "\t", kstring, "\t1", )
         
         if filter_list and not kstring in filter_list:
             #print("hoopla")
