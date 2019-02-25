@@ -1,7 +1,7 @@
 ---
 title: "SIEVEUb"
 author: "Jason McDermott"
-date: "1/28/2019"
+date: "2/25/2019"
 output: html_document
 ---
 
@@ -23,7 +23,7 @@ source("SIEVEUb.R")
 
   # To generate features from a fasta file use the following command
   #    from the SIEVEServer code
-  # KmerFeatures.py -f [input.faa] -o [outputbase] -m simple -k 15 -M reduced_alphabet_0
+  # KmerFeatures.py -f [input.faa] -o [outputbase] -m simple -k 14 -M reduced_alphabet_0
   
   
   # read in data file about examples (class and sequence family)
@@ -54,17 +54,31 @@ The following gets cross-validation performance results from multiple different 
     }
     return(results)
   }
+
+  kmer_counts = function(prefix, suffix, start=3, end=15, this_factor, this_families, niter=100) {
+    results = list()
+    for (i in start:end) {
+      fname = sprintf("%s%d%s", prefix, i, suffix)
+      data = read.table(fname, sep="\t", row.names=1, header=1, stringsAsFactors = F)
+      
+      kmercounts = family_counts(data[names(this_factor),], this_families, this_factor)
+      
+      results = c(results, list(kmercounts))
+    }
+    return(results)
+  }
   
   # this just performs the same analysis a bunch of times to see what the
   #   variability from train/test divisions is
-  kmer_run = function(fname, this_factor, this_families, ntimes=10, niter=100, downsample_families=NA) {
-    data = read.table(fname, sep="\t", row.names=1, header=1, stringsAsFactors = F)
+  kmer_run = function(fname, this_factor, this_families, ntimes=10, niter=100, downsample_families=NA, data=NA) {
+    if (is.na(data)) data = read.table(fname, sep="\t", row.names=1, header=1, stringsAsFactors = F)
     results = c()
     for (i in 1:ntimes) {
       svm_cv = family_bootstrap_svm(t(as.matrix(data[names(this_factor),])), this_factor, 
                                     this_families, niter=niter, downsample_families=downsample_families)
-      print(svm_cv$auc)
+      #print(svm_cv$aucs)
       results = c(results, svm_cv$auc)
+      #results = c(results, mean(svm_cv$aucs, na.rm=T))
     }
     return(results)
   }
@@ -73,12 +87,13 @@ The following gets cross-validation performance results from multiple different 
   #      encoding. The feature vectors were pre-generated using the KmerFeatures.py code (see above)
   
   ubex_red0_sweep = kmer_sweep("data/red0/ubligase_k", ".red0.train", 3, 20, ubex_fact, ubex_families, 100)
-  #ubex_red1_sweep = kmer_sweep("red1/ubligase_k", ".red1.train", 3, 20, ubex_fact, ubex_families, 100)
-  #ubex_red2_sweep = kmer_sweep("red2/ubligase_k", ".red2.train", 3, 20, ubex_fact, ubex_families, 100)
-  #ubex_red3_sweep = kmer_sweep("red3/ubligase_k", ".red3.train", 3, 20, ubex_fact, ubex_families, 100)
-  #ubex_red4_sweep = kmer_sweep("red4/ubligase_k", ".red4.train", 3, 20, ubex_fact, ubex_families, 100)
+  #ubex_red1_sweep = kmer_sweep("../analysis/red1/ubligase_k", ".red1.train", 3, 20, ubex_fact, ubex_families, 100)
+  #ubex_red2_sweep = kmer_sweep("../analysis/red2/ubligase_k", ".red2.train", 3, 20, ubex_fact, ubex_families, 100)
+  #ubex_red3_sweep = kmer_sweep("../analysis/red3/ubligase_k", ".red3.train", 3, 20, ubex_fact, ubex_families, 100)
+  #ubex_red4_sweep = kmer_sweep("../analysis/red4/ubligase_k", ".red4.train", 3, 20, ubex_fact, ubex_families, 100)
   
   plot(y=ubex_red0_sweep, x=3:(length(ubex_red0_sweep)+2), ylab="AUC", xlab="kmer length", type="l", ylim=c(0.5,1))
+  #plot(y=ubex_red1_sweep, x=3:(length(ubex_red1_sweep)+2), ylab="AUC", xlab="kmer length", type="l", ylim=c(0.5,1))
   
   #ubex_nat_ksweep = kmer_sweep("nat/ubligase_k", ".train", 3, 20, ubex_fact, ubex_families, 100)
   
@@ -94,18 +109,181 @@ The following gets cross-validation performance results from multiple different 
   
 ```
 
-Examine the cross-validation results on the model using different random seeds
+
+``` {r kmer-counts}
+# Using a simple approach to identify most discriminatory kmers
+# this circumvents the cross-validation during recursive feature elimination
+# and is solidly defensible in terms of pulling out the most predictive individual features.
+ubex_red0_counts = kmer_counts("data/red0/ubligase_k", ".red0.train", 3, 20, ubex_fact, ubex_families, 100)
+boxplot(sapply(1:18, function (i) list(ubex_red0_counts[[i]][,5])), names=3:20)
+write.table(ubex_red0_counts[[12]], file="data/ubex_red0_counts.txt", sep="\t", quote=F)
+
+ubex_red1_counts = kmer_counts("../analysis/red1/ubligase_k", ".red1.train", 3, 20, ubex_fact, ubex_families, 100)
+boxplot(sapply(1:18, function (i) list(ubex_red1_counts[[i]][,5])), names=3:20)
+
+ubex_red2_counts = kmer_counts("../analysis/red2/ubligase_k", ".red2.train", 3, 20, ubex_fact, ubex_families, 100)
+boxplot(sapply(1:18, function (i) list(ubex_red2_counts[[i]][,5])), names=3:20)
+
+ubex_red3_counts = kmer_counts("../analysis/red3/ubligase_k", ".red3.train", 3, 20, ubex_fact, ubex_families, 100)
+boxplot(sapply(1:18, function (i) list(ubex_red3_counts[[i]][,5])), names=3:20)
+
+ubex_red4_counts = kmer_counts("../analysis/red4/ubligase_k", ".red4.train", 3, 20, ubex_fact, ubex_families, 100)
+boxplot(sapply(1:18, function (i) list(ubex_red4_counts[[i]][,5])), names=3:20)
+
+ubex_nat_counts = kmer_counts("../analysis/nat/ubligase_k", ".train", 3, 20, ubex_fact, ubex_families, 100)
+boxplot(sapply(1:18, function (i) list(ubex_nat_counts[[i]][,5])), names=3:20)
+
+
+plot(3:20, sapply(1:18, function (i) max(ubex_red0_counts[[i]][,5])), ylim=c(0,0.6), col="red", type="l", ylab="Positive family bias", xlab="K")
+lines(3:20, sapply(1:18, function (i) max(ubex_red1_counts[[i]][,5])), ylim=c(0,0.6), col="green")
+lines(3:20, sapply(1:18, function (i) max(ubex_red2_counts[[i]][,5])), ylim=c(0,0.6), col="orange")
+lines(3:20, sapply(1:18, function (i) max(ubex_red3_counts[[i]][,5])), ylim=c(0,0.6), col="purple")
+lines(3:20, sapply(1:18, function (i) max(ubex_red4_counts[[i]][,5])), ylim=c(0,0.6), col="cyan")
+lines(3:20, sapply(1:18, function (i) max(ubex_nat_counts[[i]][,5])), ylim=c(0,0.6), col="black")
+
+
+# making the components of the new Figure 2 in the paper
+# the final version of the figure was assembled in Illustrator
+pdf("data/KmerCounts_red0_boxplot.pdf", width=10, height=4)
+boxplot(sapply(1:18, function (i) list(ubex_red0_counts[[i]][,5])), names=3:20, xlab="K", ylab="Predictive Score", ylim=c(-0.4,0.6))
+dev.off()
+pdf("data/KmerCounts_red1_boxplot.pdf", width=10, height=4)
+boxplot(sapply(1:18, function (i) list(ubex_red1_counts[[i]][,5])), names=3:20, xlab="K", ylab="Predictive Score", ylim=c(-0.4,0.6))
+dev.off()
+pdf("data/KmerCounts_red2_boxplot.pdf", width=10, height=4)
+boxplot(sapply(1:18, function (i) list(ubex_red2_counts[[i]][,5])), names=3:20, xlab="K", ylab="Predictive Score", ylim=c(-0.4,0.6))
+dev.off()
+pdf("data/KmerCounts_red3_boxplot.pdf", width=10, height=4)
+boxplot(sapply(1:18, function (i) list(ubex_red3_counts[[i]][,5])), names=3:20, xlab="K", ylab="Predictive Score", ylim=c(-0.4,0.6))
+dev.off()
+pdf("data/KmerCounts_red4_boxplot.pdf", width=10, height=4)
+boxplot(sapply(1:18, function (i) list(ubex_red4_counts[[i]][,5])), names=3:20, xlab="K", ylab="Predictive Score", ylim=c(-0.4,0.6))
+dev.off()
+pdf("data/KmerCounts_nat_boxplot.pdf", width=10, height=4)
+boxplot(sapply(1:18, function (i) list(ubex_nat_counts[[i]][,5])), names=3:20, xlab="K", ylab="Predictive Score", ylim=c(-0.4,0.6))
+dev.off()
+
+# scan sets of the top N best features for best predictive models
+# this plot is not referenced in the paper, but shows that the top most predictive features
+# can be combinined into predictive models - and that these are roughly equivalent over a range
+# of top features
+k14topmodels_results = sapply(2:50, function (i) list(kmer_run("dummy", ubex_fact, ubex_families, ntimes=1, data=ubex_k14red0[,names(sort(ubex_red0_counts[[12]][,5], decreasing=T))[1:i]])))
+
+plot(2:50, k14topmodels, type="l", xlab="Top N features", ylab="AUC")
+
+# choosing 10 as a reasonable number of features that gives a good predictive ability
+# This is the minimal model
+minimal10_features = names(sort(ubex_red0_counts[[12]][,5], decreasing=T))[1:10]
+sieveub_minimal10_model = svm(x=ubex_k14red0[names(ubex_fact),minimal10_features], ubex_fact, probability=T)
+write.table(minimal10_features, file="data/minimal_model_10features.txt", sep="\t", quote=F)
+```
+
+Figure 1 in the paper compares the distribution of AUC values obtained with the true hydrophobic/phydrophilic alphabet and a series of randomly chosen binary alphabets. These were generated using the command: 
+KmerFeatures.py -f [input.faa] -o [outputbase] -m simple -k 14 -M reduced_alphabet_0 -r
+
+``` {r random-alphabets}
+
+# get results from the real alphabet
+realresults = kmer_run("data/red0/ubligase_k14.red0.train", ubex_fact, ntimes=10, ubex_families)
+
+# get results from the randomized alphabets
+rndresults = c()
+for (i in 1:10) {
+  fname = sprintf("data/rnd0/ubligase_k14rnd0_v%d.train", i)
+  res = kmer_run(fname, ubex_fact, ntimes=5, ubex_families)
+  rndresults = c(rndresults, res)
+}
+
+boxplot(realresults, rndresults, names=c("Real RED0 Alphabet", "Random RED0 Alphabets"), ylab="AUC")
+
+```
+Figure 1 (see manuscript): The plot above shows that the real hydrophobic/hydrophilic amino acid alphabet is significantly better than random alphabets (binary with the same balance).
+
+
+There is one very large family that dominates the positive examples with over 100 members. This block tests whether the presence of the large number of sequences affects results by comparing it with a version that downsamples large families to 20 members.
+
+``` {r downsampling}
+res_nodown = kmer_run("data/red0/ubligase_k14.red0.train", ubex_fact, ntimes=5, ubex_families)
+
+# the option downsample_families was added to accomplish this
+res_down = kmer_run("data/red0/ubligase_k14.red0.train", ubex_fact, ubex_families, ntimes=5, downsample_families=20)
+
+boxplot(res_nodown, res_down, ylim=c(0,1))
+
+```
+
+The answer is that the large family only influences the results modestly.
+
+Examine the cross-validation results on the model using different random seeds. That is, does starting with different random seeds affect the outcomes of the cross-validation process? To test this we will just run the process a few times with different random seeds and then see if there are differences between the resulting performance.
 
 ``` {r random-seed}
 set.seed(1024)
-res1 = kmer_run("data/red0/ubligase_k14.red0.train", ubex_fact, ubex_families)
+res1 = kmer_run("data/red0/ubligase_k14.red0.train", ubex_fact, ubex_families, ntimes=5)
 set.seed(4506)
-res2 = kmer_run("data/red0/ubligase_k14.red0.train", ubex_fact, ubex_families)
-set.seet(1209092)
-res3 = kmer_run("data/red0/ubligase_k14.red0.train", ubex_fact, ubex_families)
+res2 = kmer_run("data/red0/ubligase_k14.red0.train", ubex_fact, ubex_families, ntimes=5)
+set.seed(1209092)
+res3 = kmer_run("data/red0/ubligase_k14.red0.train", ubex_fact, ubex_families, ntimes=5)
 
+t.test(res1, res2)
+t.test(res2, res3)
 
 ```
+The random seed chosen has little/no effect on the performance of the method.
+
+Next examine the feature elimination for the model.
+``` {r model-rfe}
+set.seed(1024)
+# this recreates Figure 2 from the original version of the paper. This is a commonly accepted method for performing RFE
+# on a model but does not take into account potential overfitting by the model (no cross-validation)
+model.rfe = svmrfeFeatureRanking(ubex_k14red0[names(ubex_fact),], ubex_fact)
+
+# this is a more appropriate way to do it - doing a cross validation at each step
+model.cv.rfe = svmrfeCrossFeatureRanking(ubex_k14red0[names(ubex_fact), ], ubex_fact, ubex_families, stepamount = 0.25, niter=10, fbs_niter=100)
+
+plot(c(6535, sapply(1:(length(model.cv.rfe)-3), function (i) model.cv.rfe[[i]]$nfeatures)), c(sapply(1:(length(model.cv.rfe)-3), function (i) model.cv.rfe[[i]]$auc), 0.7), type="l", ylim=c(0.4,1), xlab="Features", ylab="AUC")
+
+# here are the features in a minimal 13 feature model that performs reasonably well (AUC 0.84)
+
+# list performance and number of features
+cbind(sapply(1:length(model.cv.rfe), function (i) model.cv.rfe[[i]]$auc), sapply(1:length(model.cv.rfe), function (i) model.cv.rfe[[i]]$nfeatures))
+
+# the best model based on this approach is one with a large number of features, >1000. This shows that
+#   the model is predictive overall, but that the cross-validating recursive feature elimination
+#   process doesn't do a good job at focusing on a minimal set of features. The minimal model is
+#   derived above from our scoring metric.
+
+# this model has the best performance at 0.9044 - it has a large number of features, but that's OK
+best_model_features = model.cv.rfe[[6]]$features[1:1172]
+write.table(best_model_features, file="data/best_model_1280features.txt", sep="\t", quote=F)
+
+sieveub_best_model = svm(x=ubex_k14red0[names(ubex_fact),best_model_features], ubex_fact, probability=T)
+save(sieveub_best_model, file="data/SIEVEUb_best_model.Rdata")
+```
+
+
+Supplemental Figure 2. These plots show that elimination of features shows a peak performance of about 0.91 with 1280 features. 
+
+``` {r PATRIC-application}
+# download the PATRIC genomes listed in PATRIC.genomes
+# concatenate fasta files
+# run:
+# python3 KmerFeatures.py -f PATRIC_humanpath_reference.faa -k 14 -M reduced_alphabet_0 -F data/minimal_model_18features.idx -m simple -o data/PATRIC_k14red0_minimal_model_18features.txt
+
+load("data/SIEVEUb_best_model.Rdata")
+patric_best = read.table("../PATRIC_k14red0_best_model_features.txt.txt", sep="\t", row.names=1, header=1, stringsAsFactors =F)
+patric_best_predictions = validate_svm(train_model=sieveub_best_model, test_data = t(patric_best))
+
+write.table(patric_best_predictions$predictions, file="data/patric_ubligase_predictions_best_model.txt", sep="\t", quote=F)
+```
+
+``` {r model-validation}
+legionella_examples = read.table("data/legionella_examples_k14red0.txt", sep="\t", row.names=1, header=1, stringsAsFactors = F)
+
+legionella_minimal10_examples = read.table("data/legionella_examples_k14red0_minimal10.txt", sep="\t", row.names=1, header=1, stringsAsFactors = F)
+legionella_minimal10_predictions = validate_svm(train_model=sieveub_minimal10_model, test_data=t(legionella_minimal10_examples))
+
+```
+Application of the model to a reently identified E3 ubiquitin ligase effector from Legionella, RavN. This effector has no detectable sequence similarity with others and was not included in our dataset. However, it was shown that it has a structure similar to U-box ligases, and that it functions as an E3 ligase. Our approach is able to correctly identify it as a ubiquitin ligase.
 
 ``` {r model-application}
 
