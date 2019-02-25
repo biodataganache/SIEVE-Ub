@@ -36,6 +36,8 @@ data/ubligase_examples_ids_minimal_model_10features.tab : List of most predictiv
        used in the study.
 data/uniprot_search.readme : short description of Uniprot search and filtering process used to identify positive
        examples for E3 ubiquitin ligase
+data/red0/ : features for reduced alphabet 0 over a range of kmer lengths from 3-20
+data/rnd0/ : features for randomized binary alphabets
 </pre>
 
 This material was prepared as an account of work sponsored by an agency of the
