@@ -97,8 +97,6 @@ The following gets cross-validation performance results from multiple different 
   
   #ubex_nat_ksweep = kmer_sweep("nat/ubligase_k", ".train", 3, 20, ubex_fact, ubex_families, 100)
   
-  load("data/SIEVEUbModel.Rdata")
-  
   # to be clear about how this model was generated here is the code
   # For the final model we train on all the examples we have
   # Note that this is not the case for all the analysis we do of the model
@@ -269,30 +267,22 @@ Supplemental Figure 2. These plots show that elimination of features shows a pea
 # run:
 # python3 KmerFeatures.py -f PATRIC_humanpath_reference.faa -k 14 -M reduced_alphabet_0 -F data/minimal_model_18features.idx -m simple -o data/PATRIC_k14red0_minimal_model_18features.txt
 
-load("data/SIEVEUb_best_model.Rdata")
-patric_best = read.table("../PATRIC_k14red0_best_model_features.txt.txt", sep="\t", row.names=1, header=1, stringsAsFactors =F)
-patric_best_predictions = validate_svm(train_model=sieveub_best_model, test_data = t(patric_best))
 
-write.table(patric_best_predictions$predictions, file="data/patric_ubligase_predictions_best_model.txt", sep="\t", quote=F)
+# Because the size of the PATRIC features for ~400K proteins we do not include this datafile
+#      but the results can be reproduced by downloading the genomes listed (PATRIC.genomes) and
+#      applying the KmerFeatures.py to that file, then uncommenting the following code.
+
+#load("data/SIEVEUb_best_model.Rdata")
+#patric_best = read.table("../PATRIC_k14red0_best_model_features.txt.txt", sep="\t", row.names=1, header=1, stringsAsFactors =F)
+#patric_best_predictions = validate_svm(train_model=sieveub_best_model, test_data = t(patric_best))
+
+#write.table(patric_best_predictions$predictions, file="data/patric_ubligase_predictions_best_model.txt", sep="\t", quote=F)
 ```
 
 ``` {r model-validation}
-legionella_examples = read.table("data/legionella_examples_k14red0.txt", sep="\t", row.names=1, header=1, stringsAsFactors = F)
-
 legionella_minimal10_examples = read.table("data/legionella_examples_k14red0_minimal10.txt", sep="\t", row.names=1, header=1, stringsAsFactors = F)
 legionella_minimal10_predictions = validate_svm(train_model=sieveub_minimal10_model, test_data=t(legionella_minimal10_examples))
 
 ```
 Application of the model to a reently identified E3 ubiquitin ligase effector from Legionella, RavN. This effector has no detectable sequence similarity with others and was not included in our dataset. However, it was shown that it has a structure similar to U-box ligases, and that it functions as an E3 ligase. Our approach is able to correctly identify it as a ubiquitin ligase.
 
-``` {r model-application}
-
-# Here's how to apply the model to an example genome, Campylobacter ureolyticus, from PATRIC
-# First make a features file from the fasta file using this command:
-# python3 KmerFeatures.py -f data/1032069.3.PATRIC.faa -o data/1032069.3.PATRIC -m simple -k 14 -M reduced_alphabet_0 -R 9 -F data/ModelFeatureIndex.txt
-# Then you're ready to run this code:
-
-campy_features = read.table("data/1032069.3.PATRIC.txt", sep="\t", row.names=1, header=1, stringsAsFactors=F)
-campy_predictions = validate_svm(train_model=sieveub_model, test_data=t(campy_features))
-
-```
