@@ -68,6 +68,9 @@ OPTION_LIST = ["A program to generate features and run SIEVE models on input seq
                 (None, "F", "feature_set",
                  "str", None, None, None,
                  "Specify which features to include in the model"),
+                (None, "K", "kmer_output",
+                "on", None, None, None,
+                "Verbose output of kmer positions for each sequence [under development]"),
                 (None, "w", "walk",
                  "off", None, None, None,
                  "Perform a kmer walk on the input fasta file to get an idea of the kmer representation")
@@ -462,8 +465,8 @@ def define_feature_space(sequence_dict=None, kmer=None, map_function=None, start
 
 def main(fastafile=None, example_indexfile=None, features_output_format=None, features_output_filebase=None,
          filter_duplicates=None, shuffle_n=None, output_shuffled_sequences=None, n_terminal_file=None,
-         svm_ism=None, feature_set=None, kmer=None, start=None, end=None, nucleotide=None, map_function=None,
-         min_rep_thresh=None, randomize_alphabet=0, walk=None, verbose=None, **kw):
+         svm_ism=None, feature_set=None, kmer=None, start=None, end=None, nucleotide=None, kmer_output=None, 
+         map_function=None, min_rep_thresh=None, randomize_alphabet=0, walk=None, verbose=None, **kw):
 
     #randomize_alphabet = 1
     
@@ -598,7 +601,8 @@ def main(fastafile=None, example_indexfile=None, features_output_format=None, fe
 
             features = [id,]
             
-            features += string_vectorize(sequence=sequence, kmer=kmer, start=start, end=end, map_function=map_function, residues=residues, filter_list=filter_list)
+            features += string_vectorize(sequence=sequence, kmer=kmer, start=start, end=end, map_function=map_function, residues=residues, filter_list=filter_list,
+                                          kmer_output=kmer_output)
             if first:
                 labels += string_vectorize(return_labels=True, kmer=kmer, start=start, end=end, map_function=map_function, residues=residues, filter_list=filter_list)
                 if features_output_format == "simple":

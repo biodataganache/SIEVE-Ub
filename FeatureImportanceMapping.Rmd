@@ -1,0 +1,79 @@
+---
+title: "Mapping Feature Importance"
+author: "Jason McDermott"
+date: "7/15/2019"
+output: html_document
+---
+
+This example will show how to map feature importance (as determined in a simple kmer counting manner)
+to individual sequences and plot the results. This can be used to identify regions of the protein that
+are most relevant to the function being captured by the positive example set.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# load R functions to run SVM cross-validation, etc.
+source("SIEVEUb.R")
+```
+
+```{r data-ingest}
+
+  # To generate features from a fasta file use the following command
+  #    from the SIEVEServer code
+  # KmerFeatures.py -f [input.faa] -o [outputbase] -m simple -k 14 -M reduced_alphabet_0
+  
+  
+  # read in data file about examples (class and sequence family)
+  ubex_classes = read.table("data/FamiliesConservative.txt", sep="\t", header=1, row.names=1)
+  ubex_fact = factor(x=ubex_classes[,3], labels=c("positive", "negative"))
+  names(ubex_fact) = rownames(ubex_classes)
+  ubex_families = ubex_classes[,1]
+  names(ubex_families) = rownames(ubex_classes)
+  
+    # this is a matrix of features from examples
+  ubex_k14red0 = read.table("data/red0/ubligase_k14.red0.train", sep="\t", row.names=1, header=1, stringsAsFactors=F)
+
+  
+  # For this example you will also need to generate a list of the kmers
+  #   in order for your example protein of interest. Do so using the following
+  #   command from the SIEVEServer code
+  # KmerFeatures.py -f [input.faa] -o [outputbase] -m simple -k 14 -M reduced_alphabet_0 -K > [output_seqkmer.txt]
+  #   
+  #    In this case the output file specified in outputbase can be ignored - we'll only use the output_seqkmer.txt
+  
+  
+  seqkmer = read.table("output_seqkmer.txt", sep="\t", row.names=1, stringsAsFactors=F)
+  seqkmer[,2] = sapply(seqkmer[,2], function (n) paste("KMER.14.RED0.", substr(n, 2,15), sep=""))
+  
+```
+
+
+``` {r matching}
+
+# do the kmercounts on the training set to calculate the importance of each individual kmer
+#    in the dataset
+kmercounts = family_counts(ubex_k14red0[names(ubex_fact),], ubex_families, ubex_fact)
+
+seqkmercounts = t(sapply(rownames(seqkmer), function (i) {this=seqkmer[i,2]; if (this %in% rownames(kmercounts)) return(c(seqkmer[i,], kmercounts[this,])); return(c(seqkmer[i,], c(NA, NA, NA, NA, NA)))}))
+
+# this gives a data frame with information about each kmer in the sequence - and information about
+#   how informative that kmer is to the classification task you have.
+
+
+# now we can plot kmer information by sequence location
+```
+Plot of the importance of each position in a sequence based on the contribution of the
+kmer at that position to the classification task based on simple counting metrics.
+
+```{r plot-1}
+plot(x=rownames(seqkmercounts), y=seqkmercounts[,8], type="l", xlab="Sequence  position", ylab="Importance")
+
+```
+
+Plot of the importance of a window of kmers (smoothed using a window) in a  sequence
+
+```{r plot-2}
+plot(sapply(1:(nrow(seqkmercounts)-30), function(i) mean(unlist(seqkmercounts[i:(i+30),8]), na.rm=T)), type="l", xlab="Sequence position", ylab="Mean Importance (window=30)")
+
+```
+
