@@ -5,6 +5,14 @@ Accompanies the preprint: https://peerj.com/preprints/27292/
 
 Published paper: https://peerj.com/articles/7055/
 
+### Updated 2020-11-12 ###
+The model used for the prediction script was not effective at classifying the training examples. This
+doesn't reflect the performance of the method, which is carefully validated in the paper and is based
+on separate analysis that doesn't rely on the model used in the final prediction script.
+
+I've updated the script to use the corrected model which provides 94% correct classification of positive
+examples and 99% correct classification of negative examples.
+
 <pre>
 Files:
 KmerFeatures.py : Python code that transforms a protein fasta file into kmer features suitable for use

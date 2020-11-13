@@ -174,6 +174,55 @@ plot(2:50, k14topmodels, type="l", xlab="Top N features", ylab="AUC")
 minimal10_features = names(sort(ubex_red0_counts[[12]][,5], decreasing=T))[1:10]
 sieveub_minimal10_model = svm(x=ubex_k14red0[names(ubex_fact),minimal10_features], ubex_fact, probability=T)
 write.table(minimal10_features, file="data/minimal_model_10features.txt", sep="\t", quote=F)
+
+# the min10 model captures a bunch of the positive examples (maybe half) but fails to get the remainder
+# we'll extend to min30 and check on that
+minimal30_features = names(sort(ubex_red0_counts[[12]][,5], decreasing=T))[1:30]
+sieveub_minimal30_model = svm(x=ubex_k14red0[names(ubex_fact),minimal30_features], ubex_fact, probability=T)
+write.table(minimal30_features, file="data/minimal_model_30features.txt", sep="\t", quote=F)
+save(sieveub_minimal30_model, file="data/SIEVEUb_min30_model.Rdata")
+
+# the min30 model does better - but still not perfect (~80% of the positives)
+# NOTE: the 'probability' output from the prediction is REVERSED of what it should be
+# negative probability is actually positive probability
+# extend to min50 and check
+minimal50_features = names(sort(ubex_red0_counts[[12]][,5], decreasing=T))[1:50]
+sieveub_minimal50_model = svm(x=ubex_k14red0[names(ubex_fact),minimal50_features], ubex_fact, probability=T)
+write.table(minimal50_features, file="data/minimal_model_50features.txt", sep="\t", quote=F)
+save(sieveub_minimal50_model, file="data/SIEVEUb_min50_model.Rdata")
+
+# the min50 model does better - but still not perfect (~84% of the positives)
+# extend to min100 and check
+minimal100_features = names(sort(ubex_red0_counts[[12]][,5], decreasing=T))[1:100]
+sieveub_minimal100_model = svm(x=ubex_k14red0[names(ubex_fact),minimal100_features], ubex_fact, probability=T)
+write.table(minimal100_features, file="data/minimal_model_100features.txt", sep="\t", quote=F)
+save(sieveub_minimal100_model, file="data/SIEVEUb_min100_model.Rdata")
+
+# min100 is even better 88% of positives
+# extend to 200 to check improvement
+minimal200_features = names(sort(ubex_red0_counts[[12]][,5], decreasing=T))[1:200]
+sieveub_minimal200_model = svm(x=ubex_k14red0[names(ubex_fact),minimal200_features], ubex_fact, probability=T)
+write.table(minimal200_features, file="data/minimal_model_200features.txt", sep="\t", quote=F)
+save(sieveub_minimal200_model, file="data/SIEVEUb_min200_model.Rdata")
+
+# min200 is even better 90% of positives
+# extend to 1000 to check improvement
+minimal1000_features = names(sort(ubex_red0_counts[[12]][,5], decreasing=T))[1:1000]
+sieveub_minimal1000_model = svm(x=ubex_k14red0[names(ubex_fact),minimal1000_features], ubex_fact, probability=T)
+write.table(minimal1000_features, file="data/minimal_model_1000features.txt", sep="\t", quote=F)
+save(sieveub_minimal1000_model, file="data/SIEVEUb_min1000_model.Rdata")
+
+# min1000 is even better 93% of positives
+# extend to 6000 as a sanity check 
+minimal6000_features = names(sort(ubex_red0_counts[[12]][,5], decreasing=T))[1:6000]
+sieveub_minimal6000_model = svm(x=ubex_k14red0[names(ubex_fact),minimal6000_features], ubex_fact, probability=T)
+write.table(minimal6000_features, file="data/minimal_model_6000features.txt", sep="\t", quote=F)
+save(sieveub_minimal6000_model, file="data/SIEVEUb_min6000_model.Rdata"
+     
+# min6000 gave 96% accurate classification of positives and 99% accurate classification of negatives
+# this means that there's something wrong with the 'best_model' - from RFE below
+
+
 ```
 
 Figure 1 in the paper compares the distribution of AUC values obtained with the true hydrophobic/phydrophilic alphabet and a series of randomly chosen binary alphabets. These were generated using the command: 
@@ -251,6 +300,9 @@ cbind(sapply(1:length(model.cv.rfe), function (i) model.cv.rfe[[i]]$auc), sapply
 #   derived above from our scoring metric.
 
 # this model has the best performance at 0.9044 - it has a large number of features, but that's OK
+# 2020-11-12: this may be incorrect. It does not accurately classify the training examples. This is either
+#  a bug - the labels are scrambled in some way - or a feature - the rfe process results in features that
+#  may not performa as well on training data (unclear how this could be the case)
 best_model_features = model.cv.rfe[[6]]$features[1:1172]
 write.table(best_model_features, file="data/best_model_1280features.txt", sep="\t", quote=F)
 
