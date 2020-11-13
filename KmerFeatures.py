@@ -11,7 +11,7 @@ from Util.SIEVEInit import *
 
 try:
     from Bio import SeqIO
-    from Bio.Alphabet import IUPAC
+    #from Bio.Alphabet import IUPAC
     
 except ImportError:
     sys.stderr.write("BioPython not installed correctly (see http://biopython.org)\n")
@@ -402,7 +402,7 @@ def kmer_walk(fastafile=None, maxk=20, seq_dump=False, **kw):
     sequence_list = []
     sequence_dict = {}
     ids_list = []
-    handle = open(fastafile, "rU")
+    handle = open(fastafile, "r")
     for record in SeqIO.parse(handle, "fasta"):
         sequence_list.append(str(record.seq))
         ids_list.append(record.id)            
@@ -477,7 +477,7 @@ def main(fastafile=None, example_indexfile=None, features_output_format=None, fe
     sequence_list = []
     sequence_dict = {}
     ids_list = []
-    handle = open(fastafile, "rU")
+    handle = open(fastafile, "r")
     for record in SeqIO.parse(handle, "fasta"):
         sequence_list.append(str(record.seq))
         ids_list.append(record.id)            
@@ -542,7 +542,7 @@ def main(fastafile=None, example_indexfile=None, features_output_format=None, fe
         # we read in a list of feature ids to use from a file
         # NOTE: not doing any check on the format of these ids
         filter_list = []
-        handle = open(feature_set, "rU")
+        handle = open(feature_set, "r")
         for line in handle.readlines():
               filter_list.append(line.split()[0])
         handle.close()
