@@ -1,0 +1,216 @@
+---
+title: "KmerSweepCode"
+author: "Jason McDermott"
+date: "1/7/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(fs)
+source("SIEVEUb.R")
+
+```
+
+``` {r data-ingest}
+  # CHANGE this chunk if you want to run a different input fasta file
+  fasta_file = "data/ubligase_examples_ids.fasta"
+
+  # read in data file about examples (class and sequence family)
+  kmer_classes = read.table("data/FamiliesConservative.txt", sep="\t", header=1, row.names=1)
+  kmer_fact = factor(x=kmer_classes[,3], labels=c("positive", "negative"))
+  names(kmer_fact) = rownames(kmer_classes)
+  kmer_families = kmer_classes[,1]
+  names(kmer_families) = rownames(kmer_classes)
+
+```
+
+
+``` {r functions}
+# functions to allow generation of results files from features and features from fasta files
+
+  # writing a function to move through the sweep
+  kmer_sweep = function(prefix, suffix, start=3, end=15, this_factor, this_families, niter=100) {
+    results = c()
+    for (i in start:end) {
+      fname = sprintf("%s%d%s", prefix, i, suffix)
+      data = read.table(fname, sep="\t", row.names=1, header=1, stringsAsFactors = F)
+      
+      svm_cv = family_bootstrap_svm(t(as.matrix(data[names(this_factor),])), this_factor, this_families, niter=niter)
+      print(svm_cv$auc)
+      results = c(results, svm_cv$auc)
+    }
+    return(results)
+  }
+
+  kmer_counts = function(prefix, suffix, start=3, end=15, this_factor, this_families, niter=100) {
+    results = list()
+    for (i in start:end) {
+      fname = sprintf("%s%d%s", prefix, i, suffix)
+      data = read.table(fname, sep="\t", row.names=1, header=1, stringsAsFactors = F)
+      
+      kmercounts = family_counts(data[names(this_factor),], this_families, this_factor)
+      
+      results = c(results, list(kmercounts))
+    }
+    return(results)
+  }
+  
+  # this just performs the same analysis a bunch of times to see what the
+  #   variability from train/test divisions is
+  kmer_run = function(fname, this_factor, this_families, ntimes=10, niter=100, downsample_families=NA, data=NA) {
+    if (is.na(data)) data = read.table(fname, sep="\t", row.names=1, header=1, stringsAsFactors = F)
+    results = c()
+    for (i in 1:ntimes) {
+      svm_cv = family_bootstrap_svm(t(as.matrix(data[names(this_factor),])), this_factor, 
+                                    this_families, niter=niter, downsample_families=downsample_families)
+      #print(svm_cv$aucs)
+      results = c(results, svm_cv$auc)
+      #results = c(results, mean(svm_cv$aucs, na.rm=T))
+    }
+    return(results)
+  }
+  
+
+# this will generate a feature matrix using KmerFeatures.py
+makeFeatureMatrix = function(input_fasta, encoding, kmer_length, output, threshold, extraopts="") {
+  if (encoding != "") encoding = paste0(" -M", encoding)
+  cmnd<-paste0('python3 ../SIEVE-Ub/KmerFeatures.py -f ', '"', input_fasta, '"', "  ", 
+              '-m simple',encoding,' -R ', threshold,' -k ', kmer_length, ' -o ', '"', output, '"', extraopts)
+
+  # KmerFeatures adds a .txt to the file name
+  print(cmnd)
+  system(cmnd)
+}
+```
+
+
+``` {r kmer-red0}
+path = path_dir(fasta_file)
+file = path_file(fasta_file)
+
+# reduced_alphabet_0
+if (!file.exists(paste0("data/red0/", file, "k3_red0_model.txt"))) {
+  dir.create("data/red0")
+
+  # step through kmer lengths
+  for (k in 3:20) {
+    output_file = paste0(path, "/red0/", file, "k", k, "_red0_model")
+    makeFeatureMatrix(fasta_file, "reduced_alphabet_0", k, output_file, 50)
+  }
+}
+
+# This really takes a hugely long time - >10 h on a laptop
+# so we'll save the results file for later
+if (file.exists("data/kmertrain_red0_sweep")) {
+ load("data/kmertrain_red0_sweep") 
+} else {
+  kmertrain_red0_sweep = kmer_sweep(paste0(path, "/red0/", file, "k"), "_red0_model.txt", 3, 20, kmer_fact, kmer_families, 10)
+  save(kmertrain_red0_sweep, file="data/kmertrain_red0_sweep")
+}
+
+```
+
+``` {r kmer-red1}
+path = path_dir(fasta_file)
+file = path_file(fasta_file)
+
+# reduced_alphabet_1
+if (!file.exists(paste0("data/red1/", file, "k3_red1_model.txt"))) {
+  dir.create("data/red1")
+
+  # step through kmer lengths
+  for (k in 3:20) {
+    output_file = paste0(path, "/red1/", file, "k", k, "_red1_model")
+    makeFeatureMatrix(fasta_file, "reduced_alphabet_1", k, output_file, 50)
+  }
+}
+
+# This really takes a hugely long time - >10 h on a laptop
+# so we'll save the results file for later
+if (file.exists("data/kmertrain_red1_sweep")) {
+ load("data/kmertrain_red1_sweep") 
+} else {
+  kmertrain_red1_sweep = kmer_sweep(paste0(path, "/red1/", file, "k"), "_red1_model.txt", 3, 20, kmer_fact, kmer_families, 10)
+  save(kmertrain_red1_sweep, file="data/kmertrain_red1_sweep")
+}
+
+```
+
+``` {r kmer-red2}
+path = path_dir(fasta_file)
+file = path_file(fasta_file)
+
+# reduced_alphabet_2
+if (!file.exists(paste0("data/red2/", file, "k3_red2_model.txt"))) {
+  dir.create("data/red2")
+
+  # step through kmer lengths
+  for (k in 3:20) {
+    output_file = paste0(path, "/red2/", file, "k", k, "_red2_model")
+    makeFeatureMatrix(fasta_file, "reduced_alphabet_2", k, output_file, 50)
+  }
+}
+
+# This really takes a hugely long time - >10 h on a laptop
+# so we'll save the results file for later
+if (file.exists("data/kmertrain_red2_sweep")) {
+ load("data/kmertrain_red2_sweep") 
+} else {
+  kmertrain_red2_sweep = kmer_sweep(paste0(path, "/red2/", file, "k"), "_red2_model.txt", 3, 20, kmer_fact, kmer_families, 10)
+  save(kmertrain_red2_sweep, file="data/kmertrain_red2_sweep")
+}
+
+```
+
+``` {r kmer-red3}
+path = path_dir(fasta_file)
+file = path_file(fasta_file)
+
+# reduced_alphabet_3
+if (!file.exists(paste0("data/red3/", file, "k3_red3_model.txt"))) {
+  dir.create("data/red3")
+
+  # step through kmer lengths
+  for (k in 3:20) {
+    output_file = paste0(path, "/red3/", file, "k", k, "_red3_model")
+    makeFeatureMatrix(fasta_file, "reduced_alphabet_3", k, output_file, 50)
+  }
+}
+
+# This really takes a hugely long time - >10 h on a laptop
+# so we'll save the results file for later
+if (file.exists("data/kmertrain_red3_sweep")) {
+ load("data/kmertrain_red3_sweep") 
+} else {
+  kmertrain_red3_sweep = kmer_sweep(paste0(path, "/red3/", file, "k"), "_red3_model.txt", 3, 20, kmer_fact, kmer_families, 10)
+  save(kmertrain_red3_sweep, file="data/kmertrain_red3_sweep")
+}
+
+```
+
+``` {r kmer-red4}
+path = path_dir(fasta_file)
+file = path_file(fasta_file)
+
+# reduced_alphabet_3
+if (!file.exists(paste0("data/red4/", file, "k3_red4_model.txt"))) {
+  dir.create("data/red4")
+
+  # step through kmer lengths
+  for (k in 3:20) {
+    output_file = paste0(path, "/red4/", file, "k", k, "_red4_model")
+    makeFeatureMatrix(fasta_file, "reduced_alphabet_4", k, output_file, 50)
+  }
+}
+
+# This really takes a hugely long time - >10 h on a laptop
+# so we'll save the results file for later
+if (file.exists("data/kmertrain_red4_sweep")) {
+ load("data/kmertrain_red4_sweep") 
+} else {
+  kmertrain_red4_sweep = kmer_sweep(paste0(path, "/red4/", file, "k"), "_red4_model.txt", 3, 20, kmer_fact, kmer_families, 10)
+  save(kmertrain_red4_sweep, file="data/kmertrain_red4_sweep")
+}
+
+```
